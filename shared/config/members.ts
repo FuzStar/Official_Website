@@ -69,6 +69,7 @@ export const memberCategories: MemberCategory[] = [
 export const members: Member[] = [
   {
     name: '无名',
+    avatar: '/avatars/wuming.jpg',
     category: 'management',
     title: { zh: '站长', en: 'Owner' },
     bio: {

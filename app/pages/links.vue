@@ -9,6 +9,13 @@ function pick(text?: { zh: string, en: string }): string | undefined {
   if (!text) return undefined
   return text[locale.value as keyof typeof text] ?? text.zh
 }
+
+// logo 加载失败时退回名字首字
+const failedLogos = reactive<Record<string, boolean>>({})
+
+function markFailed(url: string) {
+  failedLogos[url] = true
+}
 </script>
 
 <template>
@@ -28,21 +35,40 @@ function pick(text?: { zh: string, en: string }): string | undefined {
           rel="noopener noreferrer nofollow"
           class="group rounded-2xl border border-default bg-default p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
         >
-          <div class="flex items-center justify-between gap-3">
-            <h2 class="truncate text-lg font-semibold">
-              {{ link.name }}
-            </h2>
-            <UIcon
-              name="i-lucide-arrow-up-right"
-              class="size-4 shrink-0 text-muted transition-colors group-hover:text-primary"
-            />
+          <div class="flex items-start gap-4">
+            <img
+              v-if="link.logo && !failedLogos[link.url]"
+              :src="link.logo"
+              :alt="link.name"
+              class="size-11 shrink-0 rounded-xl object-cover"
+              loading="lazy"
+              @error="markFailed(link.url)"
+            >
+            <span
+              v-else
+              class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg font-bold text-primary"
+              aria-hidden="true"
+            >
+              {{ link.name.charAt(0) }}
+            </span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h2 class="truncate text-lg font-semibold">
+                  {{ link.name }}
+                </h2>
+                <UIcon
+                  name="i-lucide-arrow-up-right"
+                  class="size-4 shrink-0 text-muted transition-colors group-hover:text-primary"
+                />
+              </div>
+              <p
+                v-if="pick(link.description)"
+                class="mt-1.5 text-sm leading-relaxed text-muted"
+              >
+                {{ pick(link.description) }}
+              </p>
+            </div>
           </div>
-          <p
-            v-if="pick(link.description)"
-            class="mt-2 text-sm leading-relaxed text-muted"
-          >
-            {{ pick(link.description) }}
-          </p>
         </a>
       </div>
     </UContainer>
