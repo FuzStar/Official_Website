@@ -42,8 +42,26 @@ export default defineNuxtConfig({
 
   icon: {
     // 图标全部打进客户端包，静态托管时不依赖任何在线接口
+    // 打包里没有的图标宁可不显示，也不去请求 iconify API
+    fallbackToApi: false,
     clientBundle: {
       scan: true,
+      // 配置文件里的图标名是动态的，扫描不到，要打包的逐个列在这里
+      // 格式是 前缀:名字，成员配置里写 i- 前缀形式（如 i-simple-icons-qq）
+      icons: [
+        'lucide:check',
+        'lucide:copy',
+        'lucide:globe',
+        'lucide:link',
+        'lucide:x',
+        'simple-icons:bilibili',
+        'simple-icons:discord',
+        'simple-icons:github',
+        'simple-icons:qq',
+        'simple-icons:telegram',
+        'simple-icons:x',
+        'simple-icons:youtube',
+      ],
     },
   },
 

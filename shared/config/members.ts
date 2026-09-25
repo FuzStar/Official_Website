@@ -12,14 +12,29 @@ export interface MemberCategory {
   description?: LocalizedText
 }
 
+export interface MemberLink {
+  /** 平台名，专有名词不用翻译 */
+  label: string
+  /** 点击打开的地址，与 copy 二选一 */
+  url?: string
+  /** 点击复制的内容（如 QQ 号），与 url 二选一 */
+  copy?: string
+  /** 图标名，如 i-simple-icons-qq；不填按 label 自动匹配，新图标需登记在 nuxt.config 的 icon.clientBundle.icons */
+  icon?: string
+}
+
 export interface Member {
   name: string
   /** 对应 MemberCategory.id */
   category: string
+  /** 头像：public 目录下的路径（如 /avatars/xx.png）或完整 URL，不填显示名字首字 */
+  avatar?: string
   /** 个人头衔，不填则不显示 */
   title?: LocalizedText
-  /** 个人主页或社交链接，不填则不显示 */
-  link?: string
+  /** 一句话简介，写短句，卡片上最多两行 */
+  bio?: LocalizedText
+  /** 个人链接，可多个，按顺序展示 */
+  links?: MemberLink[]
 }
 
 export const memberCategories: MemberCategory[] = [
@@ -50,30 +65,20 @@ export const memberCategories: MemberCategory[] = [
 ]
 
 // 占位数据：上线前替换成真实成员
+// 头像文件放 public/avatars/ 下，avatar 填 /avatars/文件名
 export const members: Member[] = [
   {
-    name: '示例·站长',
+    name: '无名',
     category: 'management',
     title: { zh: '站长', en: 'Owner' },
-    link: 'https://example.com',
-  },
-  {
-    name: '示例·副站',
-    category: 'management',
-    title: { zh: '日常运营', en: 'Operations' },
-  },
-  {
-    name: '示例·剪辑',
-    category: 'creation',
-    title: { zh: '视频剪辑', en: 'Video editor' },
-  },
-  {
-    name: '示例·画师',
-    category: 'creation',
-    title: { zh: '插画', en: 'Illustrator' },
-  },
-  {
-    name: '示例·成员',
-    category: 'members',
+    bio: {
+      zh: '负责拍板，也负责收拾各种烂摊子。',
+      en: 'Calls the shots and cleans up messes.',
+    },
+    links: [
+      { label: 'Telegram', url: 'https://telegram.me/nocturnemax' },
+      { label: 'QQ', copy: '3750620867' },
+      { label: 'GitHub', url: 'https://github.com/0x4E6F6374' },
+    ],
   },
 ]

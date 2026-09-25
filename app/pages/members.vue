@@ -47,36 +47,11 @@ const groups = computed(() =>
         </div>
 
         <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <div
+          <SiteMemberCard
             v-for="member in group.members"
             :key="member.name"
-            class="flex items-center gap-4 rounded-2xl border border-default bg-default p-5"
-          >
-            <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg font-bold text-primary">
-              {{ member.name.charAt(0) }}
-            </span>
-            <div class="min-w-0">
-              <p class="truncate font-semibold">
-                {{ member.name }}
-              </p>
-              <a
-                v-if="member.link"
-                :href="member.link"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                class="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-primary"
-              >
-                {{ pick(member.title) }}
-                <UIcon name="i-lucide-arrow-up-right" class="size-3.5" />
-              </a>
-              <p
-                v-else-if="pick(member.title)"
-                class="text-sm text-muted"
-              >
-                {{ pick(member.title) }}
-              </p>
-            </div>
-          </div>
+            :member="member"
+          />
         </div>
       </section>
     </UContainer>

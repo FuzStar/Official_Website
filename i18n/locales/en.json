@@ -328,7 +328,10 @@
     "hero": {
       "title": "Members",
       "lead": "The people keeping the org going, grouped by what they do."
-    }
+    },
+    "copy": "Click to copy",
+    "copied": "Copied",
+    "copyFailed": "Copy failed, select and copy manually"
   },
   "links": {
     "hero": {
