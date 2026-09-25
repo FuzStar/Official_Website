@@ -1,0 +1,365 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "join": "Join Us",
+    "charter": "Charter",
+    "docs": "Docs",
+    "menu": "Menu",
+    "mainNav": "Main navigation",
+    "closeMenu": "Close menu"
+  },
+  "header": {
+    "cta": "Join the community",
+    "language": "Switch language",
+    "switchToZh": "中",
+    "switchToEn": "EN"
+  },
+  "theme": {
+    "label": "Switch color theme",
+    "presets": {
+      "nebula": "Nebula",
+      "sunrise": "Sunrise",
+      "grove": "Grove"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Non-profit · A Chinese furry culture community",
+      "titleBefore": "A place for every furry heart to ",
+      "titleAccent": "shine",
+      "titleAfter": "",
+      "lead": "FuzzStar is an organization built by and for furry culture enthusiasts in China. We shoot videos, cut edits, run events — and keep a comfortable space where everyone can just be.",
+      "primaryCta": "Join the community",
+      "secondaryCta": "About us"
+    },
+    "directions": {
+      "title": "What we do",
+      "lead": "The org does a bit of everything — if it sounds fun, you're welcome:",
+      "items": [
+        {
+          "icon": "video",
+          "title": "Video creation",
+          "text": "From picking topics to shooting and cutting, there's always someone to team up with — originals or fan edits. Need a storyboard buddy or a color grader? Shout in the chat."
+        },
+        {
+          "icon": "community",
+          "title": "Community life",
+          "text": "Show off your OC, talk fursuits, plan meetups. Few rules, one clear bottom line: respect each other, don't start fights."
+        },
+        {
+          "icon": "ideas",
+          "title": "Group projects",
+          "text": "Collab videos, cross-community events, offline meetups — if enough people are in, any idea becomes a project. Bring the idea; we'll bring the hands."
+        }
+      ]
+    },
+    "ctaBand": {
+      "title": "Come hang out first",
+      "text": "Website copy is just words — the people in the chat are the real thing. Pick QQ or Discord and say hi.",
+      "button": "See how to join"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About FuzzStar",
+      "lead": "Where we came from, what we keep busy with, and how we treat each other."
+    },
+    "origin": {
+      "title": "How it started",
+      "paragraphs": [
+        "FuzzStar began as a tiny group chat. We were all into furry culture and couldn't sit still — someone wanted to shoot videos, someone wanted to edit, someone just wanted people to talk to. So we ended up together.",
+        "The group kept growing until the little chat became what it is today. We don't have any grand plans — we just think furry fans in China deserve a steady, comfortable place to land."
+      ]
+    },
+    "work": {
+      "title": "What we do",
+      "items": [
+        {
+          "title": "Content creation",
+          "text": "Videos, write-ups, fan works — the org divides up the work, and members are free to start their own projects. Need a hand? Just ask."
+        },
+        {
+          "title": "Community running",
+          "text": "Two community groups, kept alive by everyone: mods hold the line, members help each other out."
+        },
+        {
+          "title": "Events",
+          "text": "Online watch-alongs, group shoots, con meetups — big or small, if someone wants to organize it, someone else will help."
+        },
+        {
+          "title": "Collaborations",
+          "text": "We're always open to working with other creators and groups. Reach us via email or the community chat."
+        }
+      ]
+    },
+    "values": {
+      "title": "How we get along",
+      "items": [
+        "Art and OCs belong to their creators: ask before reposting, adapting, or crediting.",
+        "Talk things out. Criticize the work, never the person.",
+        "Newcomers not knowing the rules is normal — guide first, punish later.",
+        "Keep private things private: no digging up identities or sharing chats without permission."
+      ]
+    },
+    "outlook": {
+      "title": "What's next",
+      "text": "Keep the community solid so newcomers don't get lost; back our members' creative work and pitch in where we can; team up more with others and grow the scene a little.",
+      "primaryCta": "Join us",
+      "secondaryCta": "Read the charter"
+    }
+  },
+  "join": {
+    "hero": {
+      "title": "Join us",
+      "lead": "Community links on this page, plus exactly how member approval works."
+    },
+    "steps": {
+      "title": "Become a member in three steps",
+      "items": [
+        {
+          "title": "Pick a community",
+          "text": "QQ or Discord — click the link and you're in."
+        },
+        {
+          "title": "Talk to the mod team",
+          "text": "Once inside, reach out to the mod team and say you'd like to apply."
+        },
+        {
+          "title": "Pass the review",
+          "text": "Follow their instructions to submit your info. Once approved, you're a full member."
+        }
+      ]
+    },
+    "communities": {
+      "title": "Community links",
+      "qq": {
+        "name": "QQ Group",
+        "text": "Easiest for users in China — one click to join.",
+        "button": "Join the QQ group"
+      },
+      "discord": {
+        "name": "Discord",
+        "text": "For friends abroad, or anyone who lives in Discord.",
+        "button": "Join Discord"
+      },
+      "note": "Not sure yet? Email us first: {email}"
+    },
+    "requirements": {
+      "title": "Before you apply",
+      "items": [
+        "You agree with the charter and will follow the community rules.",
+        "You respect other people's art, OCs, and privacy.",
+        "You treat yourself as part of the community — speak up when something's off."
+      ]
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "q": "Is joining the group the same as joining the org?",
+          "a": "No. The community group is open for hanging out; becoming a member means applying to the mod team for review."
+        },
+        {
+          "q": "QQ or Discord?",
+          "a": "QQ is easier for everyday use in China; Discord works better abroad or if you prefer English. Both are welcome."
+        },
+        {
+          "q": "Can my application be rejected?",
+          "a": "The review checks whether you're on board with the charter and willing to follow the rules. If you don't pass, ask the mods why — you can always reapply."
+        }
+      ]
+    }
+  },
+  "charter": {
+    "hero": {
+      "title": "Organization charter",
+      "lead": "How FuzzStar runs, and what members can expect — all written below."
+    },
+    "draft": {
+      "title": "This is a draft",
+      "description": "The wording is still being polished; the mod team's final version takes precedence. Feedback is welcome in the community chat."
+    },
+    "toc": "Chapters",
+    "chapters": [
+      {
+        "title": "Chapter I — General Provisions",
+        "articles": [
+          {
+            "no": "Article 1",
+            "text": "The organization is named FuzzStar, a non-profit interest group made up primarily of furry culture enthusiasts in China."
+          },
+          {
+            "no": "Article 2",
+            "text": "Its mission is to bring furry culture fans together, encourage creative exchange and content production, and provide members with a friendly, stable community environment."
+          },
+          {
+            "no": "Article 3",
+            "text": "The organization is not for profit, and must not be used as a name for any illegal or non-compliant activity."
+          }
+        ]
+      },
+      {
+        "title": "Chapter II — Membership",
+        "articles": [
+          {
+            "no": "Article 4",
+            "text": "Any furry culture enthusiast who agrees with this charter and is willing to follow the community rules may apply for membership."
+          },
+          {
+            "no": "Article 5",
+            "text": "How to join: enter a community group, contact the mod team to apply, and become a member once the review is approved."
+          },
+          {
+            "no": "Article 6",
+            "text": "Members are divided into general members and mod team members. The mod team handles day-to-day operations and decisions."
+          }
+        ]
+      },
+      {
+        "title": "Chapter III — Rights of Members",
+        "articles": [
+          {
+            "no": "Article 7",
+            "text": "The right to take part in events and projects organized by the group, and to use the community resources it provides."
+          },
+          {
+            "no": "Article 8",
+            "text": "The right to share opinions and suggestions about the group's work and to take part in discussions that affect members."
+          },
+          {
+            "no": "Article 9",
+            "text": "The right to oversee the mod team's work and to appeal decisions that concern oneself."
+          },
+          {
+            "no": "Article 10",
+            "text": "Members retain authorship and copyright over their own works and OCs; others may not repost or use them without permission."
+          }
+        ]
+      },
+      {
+        "title": "Chapter IV — Obligations of Members",
+        "articles": [
+          {
+            "no": "Article 11",
+            "text": "Follow this charter and all rules of the community groups."
+          },
+          {
+            "no": "Article 12",
+            "text": "Respect other members: no personal attacks, no flame wars, no harassment."
+          },
+          {
+            "no": "Article 13",
+            "text": "Respect others' creations and copyrights; do not repost, misuse, or republish without the original author's permission."
+          },
+          {
+            "no": "Article 14",
+            "text": "Help maintain community order and report rule-breaking behavior to the mod team in a timely manner."
+          }
+        ]
+      },
+      {
+        "title": "Chapter V — Structure",
+        "articles": [
+          {
+            "no": "Article 15",
+            "text": "The mod team is the group's executive body, made up of the founders and approved members."
+          },
+          {
+            "no": "Article 16",
+            "text": "The mod team divides work internally across content, community, and events; exact roles are agreed within the team."
+          },
+          {
+            "no": "Article 17",
+            "text": "Important matters affecting members' shared interests should first be opened for community feedback, then decided by the mod team."
+          }
+        ]
+      },
+      {
+        "title": "Chapter VI — Discipline",
+        "articles": [
+          {
+            "no": "Article 18",
+            "text": "Members who violate the charter or community rules may, depending on severity, receive a warning, a suspension of privileges, or removal from the community."
+          },
+          {
+            "no": "Article 19",
+            "text": "A member who objects to a decision may appeal to the mod team after being notified, and the mod team shall respond."
+          },
+          {
+            "no": "Article 20",
+            "text": "Anyone using the organization's name for illegal activities or private profit shall be removed from the group."
+          }
+        ]
+      },
+      {
+        "title": "Chapter VII — Supplementary Provisions",
+        "articles": [
+          {
+            "no": "Article 21",
+            "text": "The right to interpret this charter belongs to the mod team."
+          },
+          {
+            "no": "Article 22",
+            "text": "Amendments must be discussed and passed by the mod team, and take effect after being announced to the community."
+          },
+          {
+            "no": "Article 23",
+            "text": "This charter takes effect on the date of publication."
+          }
+        ]
+      }
+    ]
+  },
+  "docs": {
+    "hero": {
+      "title": "Docs",
+      "lead": "Community rules, creation guides, and FAQs will all live here."
+    },
+    "badge": "WIP",
+    "coming": {
+      "title": "The docs are being built",
+      "text": "We'll ship once the content is sorted. Feel free to nag us.",
+      "home": "Back to home",
+      "join": "Visit the community"
+    }
+  },
+  "notFound": {
+    "title": "This page wandered off",
+    "lead": "The link may be outdated, or we moved it somewhere else.",
+    "home": "Back home",
+    "join": "See how to join",
+    "serverError": "Something went wrong on our side"
+  },
+  "footer": {
+    "tagline": "A community built by furry culture fans in China.",
+    "site": "Site",
+    "community": "Community",
+    "qq": "QQ Group",
+    "discord": "Discord",
+    "email": "Email",
+    "rights": "All rights reserved"
+  },
+  "seo": {
+    "home": {
+      "title": "A furry culture community in China",
+      "description": "FuzzStar is a community-led organization for furry culture enthusiasts in China — video creation, community chat, and group projects. Come hang out."
+    },
+    "about": {
+      "title": "About the organization",
+      "description": "The story behind FuzzStar, what we do day to day, and how we treat each other."
+    },
+    "join": {
+      "title": "Join us",
+      "description": "Community links for FuzzStar (QQ and Discord), plus the full process for becoming a reviewed member."
+    },
+    "charter": {
+      "title": "Organization charter",
+      "description": "The FuzzStar charter: membership, rights and obligations, structure, and discipline."
+    },
+    "docs": {
+      "title": "Docs",
+      "description": "The FuzzStar documentation center — coming soon."
+    }
+  }
+}
