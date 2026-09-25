@@ -18,10 +18,10 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
       :lead="t('about.hero.lead')"
     />
 
-    <UContainer class="space-y-16 py-14 sm:py-16">
+    <UContainer class="space-y-16 py-14 sm:py-20">
       <!-- 起源 -->
       <section class="max-w-3xl">
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.origin.title') }}
         </h2>
         <div class="mt-5 space-y-4 leading-relaxed text-muted">
@@ -36,7 +36,7 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
 
       <!-- 在做的事 -->
       <section>
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.work.title') }}
         </h2>
         <div class="mt-6 grid gap-5 sm:grid-cols-2">
@@ -62,7 +62,7 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
 
       <!-- 相处方式 -->
       <section class="max-w-3xl">
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.values.title') }}
         </h2>
         <ul class="mt-5 space-y-3.5">
@@ -81,9 +81,9 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
       </section>
 
       <!-- 展望 -->
-      <section class="rounded-3xl border border-default bg-gradient-to-br from-primary/10 via-default to-secondary/10 p-8 sm:p-10">
+      <section class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-10">
         <div class="max-w-2xl">
-          <h2 class="text-2xl font-bold tracking-tight">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
             {{ t('about.outlook.title') }}
           </h2>
           <p class="mt-4 leading-relaxed text-muted">

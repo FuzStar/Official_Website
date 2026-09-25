@@ -25,7 +25,7 @@ const communityLinks = computed(() => [
       <div class="max-w-sm">
         <NuxtLink :to="localePath('index')" class="flex items-center gap-2">
           <span class="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary shadow-sm">
-            <UIcon name="i-lucide-sparkles" class="size-4 text-white" />
+            <UIcon name="i-lucide-star" class="size-4 text-white" />
           </span>
           <span class="text-lg font-extrabold tracking-tight">
             <span class="text-default">Fuzz</span><span class="text-primary">Star</span>

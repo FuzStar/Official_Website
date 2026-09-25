@@ -25,10 +25,8 @@
   },
   "home": {
     "hero": {
-      "badge": "非营利 · 国内福瑞文化爱好者组织",
-      "titleBefore": "让每一份喜欢，都能找到",
-      "titleAccent": "发光",
-      "titleAfter": "的地方",
+      "badge": "非营利 · 由爱好者自发组织",
+      "title": "国内福瑞同好的大本营",
       "lead": "FuzzStar 是一个以国内福瑞文化爱好者为主的组织。我们一起拍片、剪辑、办活动，也想给大伙儿留一个能安心待着的地方。",
       "primaryCta": "加入社区",
       "secondaryCta": "了解组织"
@@ -143,7 +141,7 @@
         "text": "海外朋友，或者更习惯 Discord 的，走这个门。",
         "button": "加入 Discord"
       },
-      "note": "拿不准主意可以先发邮件：{email}"
+      "note": "拿不准主意，可以先发邮件："
     },
     "requirements": {
       "title": "申请之前，先看看",
@@ -332,7 +330,7 @@
     "serverError": "服务器出了点状况"
   },
   "footer": {
-    "tagline": "国内福瑞文化爱好者的共创社区。",
+    "tagline": "一群福瑞爱好者自己维护的社区。",
     "site": "站点",
     "community": "社区",
     "qq": "QQ 群",

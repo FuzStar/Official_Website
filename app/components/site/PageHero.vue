@@ -9,8 +9,11 @@ defineProps<{
   <section class="relative overflow-hidden">
     <div
       aria-hidden="true"
-      class="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-primary/10 via-secondary/5 to-transparent"
-    />
+      class="pointer-events-none absolute inset-0"
+    >
+      <div class="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-primary/8 to-transparent" />
+      <div class="absolute inset-0 [background-image:radial-gradient(var(--ui-border)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
+    </div>
     <UContainer class="relative py-14 sm:py-20">
       <div class="max-w-3xl space-y-4">
         <slot name="badge" />

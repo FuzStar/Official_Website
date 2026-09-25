@@ -25,10 +25,8 @@
   },
   "home": {
     "hero": {
-      "badge": "Non-profit · A Chinese furry culture community",
-      "titleBefore": "A place for every furry heart to ",
-      "titleAccent": "shine",
-      "titleAfter": "",
+      "badge": "Non-profit · Run by fans, for fans",
+      "title": "Home base for China's furry fans",
       "lead": "FuzzStar is an organization built by and for furry culture enthusiasts in China. We shoot videos, cut edits, run events — and keep a comfortable space where everyone can just be.",
       "primaryCta": "Join the community",
       "secondaryCta": "About us"
@@ -143,7 +141,7 @@
         "text": "For friends abroad, or anyone who lives in Discord.",
         "button": "Join Discord"
       },
-      "note": "Not sure yet? Email us first: {email}"
+      "note": "Not sure yet? Email us first:"
     },
     "requirements": {
       "title": "Before you apply",
@@ -332,7 +330,7 @@
     "serverError": "Something went wrong on our side"
   },
   "footer": {
-    "tagline": "A community built by furry culture fans in China.",
+    "tagline": "A community run by furry fans in China.",
     "site": "Site",
     "community": "Community",
     "qq": "QQ Group",

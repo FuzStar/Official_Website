@@ -12,6 +12,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* 弹窗/抽屉锁滚动时页面宽度不跳 */
+    scrollbar-gutter: stable;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -24,6 +26,23 @@
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  /* 标题换行均衡，段落避免行尾孤字 */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* 键盘导航的焦点轮廓（组件自带的 ring 优先级更高，不受影响） */
+  :focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
   }
 
   ::selection {

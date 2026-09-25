@@ -4,6 +4,22 @@ const localePath = useLocalePath()
 
 const menuOpen = ref(false)
 
+// 离开顶部后给 header 一点投影，滚动时层次更清楚
+const scrolled = ref(false)
+let onScroll: (() => void) | undefined
+
+onMounted(() => {
+  onScroll = () => {
+    scrolled.value = window.scrollY > 8
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+})
+
+onUnmounted(() => {
+  if (onScroll) window.removeEventListener('scroll', onScroll)
+})
+
 // exact 只给首页：否则 '/' 会把所有页面都点亮
 const links = computed(() => [
   { to: localePath('index'), label: t('nav.home'), exact: true },
@@ -17,7 +33,10 @@ const joinTo = computed(() => localePath('join'))
 </script>
 
 <template>
-  <header class="sticky top-0 z-40 border-b border-default/70 bg-default/80 backdrop-blur-md">
+  <header
+    class="sticky top-0 z-40 border-b border-default/70 bg-default/80 backdrop-blur-md transition-shadow"
+    :class="scrolled ? 'shadow-sm' : ''"
+  >
     <UContainer class="flex h-16 items-center justify-between gap-4">
       <NuxtLink
         :to="localePath('index')"
@@ -25,7 +44,7 @@ const joinTo = computed(() => localePath('join'))
         :aria-label="t('nav.home')"
       >
         <span class="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary shadow-sm">
-          <UIcon name="i-lucide-sparkles" class="size-4 text-white" />
+          <UIcon name="i-lucide-star" class="size-4 text-white" />
         </span>
         <span class="text-lg font-extrabold tracking-tight">
           <span class="text-default">Fuzz</span><span class="text-primary">Star</span>
@@ -73,23 +92,10 @@ const joinTo = computed(() => localePath('join'))
     <UDrawer
       v-model:open="menuOpen"
       :title="t('nav.menu')"
+      close
     >
       <template #content>
         <div class="flex flex-col gap-5 p-4 pb-10">
-          <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold text-muted">
-              {{ t('nav.menu') }}
-            </p>
-            <UButton
-              color="neutral"
-              variant="ghost"
-              size="xs"
-              icon="i-lucide-x"
-              :aria-label="t('nav.closeMenu')"
-              @click="menuOpen = false"
-            />
-          </div>
-
           <nav class="flex flex-col gap-1" :aria-label="t('nav.mainNav')">
             <ULink
               v-for="link in links"

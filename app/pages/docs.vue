@@ -22,7 +22,7 @@ usePageSeo(t('seo.docs.title'), t('seo.docs.description'))
       </template>
     </SitePageHero>
 
-    <UContainer class="pb-20">
+    <UContainer class="pb-14 sm:pb-20">
       <div class="mx-auto flex max-w-xl flex-col items-center rounded-3xl border border-default bg-default px-6 py-14 text-center">
         <span class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <UIcon name="i-lucide-book-open-text" class="size-7" />

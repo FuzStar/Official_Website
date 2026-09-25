@@ -23,7 +23,7 @@ const chapters = computed(() => tm('charter.chapters') as CharterChapter[])
       :lead="t('charter.hero.lead')"
     />
 
-    <UContainer class="py-14 sm:py-16">
+    <UContainer class="py-14 sm:py-20">
       <UAlert
         class="mb-10"
         color="info"

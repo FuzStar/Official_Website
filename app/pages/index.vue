@@ -15,7 +15,7 @@ const directions = computed(() => {
   const items = tm('home.directions.items') as { icon: string; title: string; text: string }[]
   return items.map(item => ({
     ...item,
-    icon: directionIcons[item.icon] ?? 'i-lucide-sparkles',
+    icon: directionIcons[item.icon] ?? 'i-lucide-star',
   }))
 })
 </script>
@@ -28,25 +28,20 @@ const directions = computed(() => {
         aria-hidden="true"
         class="pointer-events-none absolute inset-0"
       >
-        <div class="absolute -top-32 left-1/2 h-96 w-[44rem] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl" />
-        <div class="absolute -right-24 top-36 h-72 w-72 rounded-full bg-secondary/15 blur-3xl" />
-        <UIcon name="i-lucide-star" class="absolute left-[10%] top-28 size-5 text-primary/40" />
-        <UIcon name="i-lucide-sparkles" class="absolute right-[16%] top-44 size-6 text-secondary/50" />
-        <UIcon name="i-lucide-star" class="absolute left-[28%] top-64 size-3 text-secondary/40" />
-        <UIcon name="i-lucide-star" class="absolute right-[32%] bottom-24 size-4 text-primary/30" />
+        <div class="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-primary/8 to-transparent" />
+        <!-- 顶部点阵，往下淡出 -->
+        <div class="absolute inset-0 [background-image:radial-gradient(var(--ui-border)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
       </div>
-
-      <UContainer class="relative py-20 sm:py-28">
+      <UContainer class="relative py-16 sm:py-24">
         <div class="max-w-3xl">
           <UBadge
             color="primary"
             variant="subtle"
-            icon="i-lucide-sparkles"
           >
             {{ t('home.hero.badge') }}
           </UBadge>
           <h1 class="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
-            {{ t('home.hero.titleBefore') }}<span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{{ t('home.hero.titleAccent') }}</span>{{ t('home.hero.titleAfter') }}
+            {{ t('home.hero.title') }}
           </h1>
           <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             {{ t('home.hero.lead') }}
@@ -77,7 +72,7 @@ const directions = computed(() => {
     <section class="py-16 sm:py-20">
       <UContainer>
         <div class="max-w-2xl">
-          <h2 class="text-3xl font-bold tracking-tight">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
             {{ t('home.directions.title') }}
           </h2>
           <p class="mt-3 leading-relaxed text-muted">
@@ -91,8 +86,8 @@ const directions = computed(() => {
             :key="item.title"
             class="group rounded-2xl border border-default bg-default p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
           >
-            <span class="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <UIcon :name="item.icon" class="size-5" />
+            <span class="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <UIcon :name="item.icon" class="size-4.5" />
             </span>
             <h3 class="mt-4 text-lg font-semibold">
               {{ item.title }}
@@ -106,9 +101,9 @@ const directions = computed(() => {
     </section>
 
     <!-- 收尾 CTA -->
-    <section class="pb-20 sm:pb-24">
+    <section class="py-16 sm:py-20">
       <UContainer>
-        <div class="relative overflow-hidden rounded-3xl border border-default bg-gradient-to-br from-primary/10 via-default to-secondary/10 p-8 sm:p-12">
+        <div class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-12">
           <div class="max-w-xl">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
               {{ t('home.ctaBand.title') }}

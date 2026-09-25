@@ -35,10 +35,10 @@ const communities = computed(() => [
       :lead="t('join.hero.lead')"
     />
 
-    <UContainer class="space-y-16 py-14 sm:py-16">
+    <UContainer class="space-y-16 py-14 sm:py-20">
       <!-- 三步 -->
       <section>
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.steps.title') }}
         </h2>
         <ol class="mt-6 grid gap-5 sm:grid-cols-3">
@@ -62,7 +62,7 @@ const communities = computed(() => [
 
       <!-- 社区入口 -->
       <section>
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.communities.title') }}
         </h2>
         <div class="mt-6 grid gap-5 sm:grid-cols-2">
@@ -72,8 +72,8 @@ const communities = computed(() => [
             class="flex flex-col rounded-2xl border border-default bg-default p-6"
           >
             <div class="flex items-center gap-3">
-              <span class="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <UIcon :name="community.icon" class="size-5" />
+              <span class="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <UIcon :name="community.icon" class="size-4.5" />
               </span>
               <h3 class="text-lg font-semibold">
                 {{ community.name }}
@@ -94,13 +94,17 @@ const communities = computed(() => [
           </div>
         </div>
         <p class="mt-4 text-sm text-muted">
-          {{ t('join.communities.note', { email: siteConfig.email }) }}
+          {{ t('join.communities.note') }}
+          <a
+            :href="`mailto:${siteConfig.email}`"
+            class="text-primary transition-colors hover:text-primary/80"
+          >{{ siteConfig.email }}</a>
         </p>
       </section>
 
       <!-- 申请须知 -->
       <section class="max-w-3xl">
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.requirements.title') }}
         </h2>
         <ul class="mt-5 space-y-3.5">
@@ -120,7 +124,7 @@ const communities = computed(() => [
 
       <!-- FAQ -->
       <section class="max-w-3xl">
-        <h2 class="text-2xl font-bold tracking-tight">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.faq.title') }}
         </h2>
         <UAccordion
