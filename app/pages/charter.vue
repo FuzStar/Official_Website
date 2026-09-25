@@ -60,7 +60,7 @@ const chapters = computed(() => tm('charter.chapters') as CharterChapter[])
             :key="chapter.title"
             class="scroll-mt-24 rounded-2xl border border-default bg-default p-6 sm:p-8"
           >
-            <h2 class="text-xl font-bold tracking-tight">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
               {{ chapter.title }}
             </h2>
             <div class="mt-5 space-y-4 leading-relaxed">

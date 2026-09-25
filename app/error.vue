@@ -34,7 +34,7 @@ function goHome() {
         <p class="mt-6 text-sm font-semibold text-error">
           {{ props.error?.statusCode }}
         </p>
-        <h1 class="mt-1 text-3xl font-bold tracking-tight">
+        <h1 class="mt-1 text-4xl font-bold tracking-tight">
           {{ t('notFound.serverError') }}
         </h1>
         <UButton
