@@ -33,6 +33,14 @@ const links = computed(() => [
 ])
 
 const joinTo = computed(() => localePath('join'))
+
+// 抽屉里的语言切换走的是客户端跳转，路由变了就把抽屉收起来，
+// 否则会出现"页面已经切到英文、抽屉还开着"的半截状态。
+const route = useRoute()
+
+watch(() => route.fullPath, () => {
+  menuOpen.value = false
+})
 </script>
 
 <template>

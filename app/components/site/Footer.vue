@@ -4,7 +4,14 @@ import { siteConfig } from '#shared/config/site'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-const year = new Date().getFullYear()
+// 静态站构建那一刻的年份会一直留在 HTML 里，
+// 客户端挂载后再按浏览器时间校正一次，避免跨年后还写着旧年份。
+const buildYear = new Date().getFullYear()
+const year = ref(buildYear)
+
+onMounted(() => {
+  year.value = new Date().getFullYear()
+})
 
 const siteLinks = computed(() => [
   { to: localePath('about'), label: t('nav.about') },
