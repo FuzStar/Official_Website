@@ -10,6 +10,8 @@ const siteLinks = computed(() => [
   { to: localePath('about'), label: t('nav.about') },
   { to: localePath('join'), label: t('nav.join') },
   { to: localePath('charter'), label: t('nav.charter') },
+  { to: localePath('members'), label: t('nav.members') },
+  { to: localePath('links'), label: t('nav.links') },
   { to: localePath('docs'), label: t('nav.docs') },
 ])
 

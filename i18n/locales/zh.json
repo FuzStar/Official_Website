@@ -4,6 +4,8 @@
     "about": "关于组织",
     "join": "加入我们",
     "charter": "组织章程",
+    "members": "成员",
+    "links": "友情链接",
     "docs": "文档",
     "menu": "菜单",
     "mainNav": "主导航",
@@ -322,6 +324,18 @@
       "join": "去社区看看"
     }
   },
+  "members": {
+    "hero": {
+      "title": "成员",
+      "lead": "把组织撑起来的人，按分工分成了几组。"
+    }
+  },
+  "links": {
+    "hero": {
+      "title": "友情链接",
+      "lead": "常来常往的朋友们，有需要互相串串门。"
+    }
+  },
   "notFound": {
     "title": "这页不见了",
     "lead": "链接可能过期了，或者我们把它挪去了别的地方。",
@@ -358,6 +372,14 @@
     "docs": {
       "title": "文档",
       "description": "FuzzStar 文档中心，整理中，即将上线。"
+    },
+    "members": {
+      "title": "成员",
+      "description": "FuzzStar 成员名单：管理组、创作组与普通成员，按分类展示。"
+    },
+    "links": {
+      "title": "友情链接",
+      "description": "FuzzStar 的友情链接：圈内常来常往的站点与社区。"
     }
   }
 }

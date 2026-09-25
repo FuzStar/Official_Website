@@ -21,11 +21,14 @@ onUnmounted(() => {
 })
 
 // exact 只给首页：否则 '/' 会把所有页面都点亮
+// 七项导航，中屏以下收进菜单
 const links = computed(() => [
   { to: localePath('index'), label: t('nav.home'), exact: true },
   { to: localePath('about'), label: t('nav.about'), exact: false },
   { to: localePath('join'), label: t('nav.join'), exact: false },
   { to: localePath('charter'), label: t('nav.charter'), exact: false },
+  { to: localePath('members'), label: t('nav.members'), exact: false },
+  { to: localePath('links'), label: t('nav.links'), exact: false },
   { to: localePath('docs'), label: t('nav.docs'), exact: false },
 ])
 
@@ -51,7 +54,7 @@ const joinTo = computed(() => localePath('join'))
         </span>
       </NuxtLink>
 
-      <nav class="hidden items-center gap-1 md:flex" :aria-label="t('nav.mainNav')">
+      <nav class="hidden items-center gap-1 lg:flex" :aria-label="t('nav.mainNav')">
         <ULink
           v-for="link in links"
           :key="link.to"
@@ -73,12 +76,12 @@ const joinTo = computed(() => localePath('join'))
           :to="joinTo"
           size="sm"
           icon="i-lucide-user-plus"
-          class="hidden md:inline-flex"
+          class="hidden lg:inline-flex"
         >
           {{ t('header.cta') }}
         </UButton>
         <UButton
-          class="md:hidden"
+          class="lg:hidden"
           color="neutral"
           variant="ghost"
           icon="i-lucide-menu"

@@ -4,6 +4,8 @@
     "about": "About",
     "join": "Join Us",
     "charter": "Charter",
+    "members": "Members",
+    "links": "Links",
     "docs": "Docs",
     "menu": "Menu",
     "mainNav": "Main navigation",
@@ -322,6 +324,18 @@
       "join": "Visit the community"
     }
   },
+  "members": {
+    "hero": {
+      "title": "Members",
+      "lead": "The people keeping the org going, grouped by what they do."
+    }
+  },
+  "links": {
+    "hero": {
+      "title": "Links",
+      "lead": "Friends we visit often — drop by and say hi."
+    }
+  },
   "notFound": {
     "title": "This page wandered off",
     "lead": "The link may be outdated, or we moved it somewhere else.",
@@ -358,6 +372,14 @@
     "docs": {
       "title": "Docs",
       "description": "The FuzzStar documentation center — coming soon."
+    },
+    "members": {
+      "title": "Members",
+      "description": "The FuzzStar member list: management, creators, and members, grouped by role."
+    },
+    "links": {
+      "title": "Links",
+      "description": "Friend links from FuzzStar — sites and communities we work with."
     }
   }
 }
