@@ -76,11 +76,11 @@
       "items": [
         {
           "title": "Content creation",
-          "text": "Videos, write-ups, fan works — the org divides up the work, and members are free to start their own projects. Need a hand? Just ask."
+          "text": "Videos, write-ups, fan works — the org divides up the work, and group members are free to start their own projects. Need a hand? Just ask."
         },
         {
           "title": "Running the community",
-          "text": "Two community groups, kept alive by everyone: mods hold the line, members help each other out."
+          "text": "Two community groups, kept alive by everyone: mods hold the line, group members help each other out."
         },
         {
           "title": "Events",
@@ -103,7 +103,7 @@
     },
     "outlook": {
       "title": "What's next",
-      "text": "Keep the community solid so newcomers don't get lost; back our members' creative work and pitch in where we can; team up more with others and grow the scene a little.",
+      "text": "Keep the community solid so newcomers don't get lost; back group members' creative work and pitch in where we can; team up more with others and grow the scene a little.",
       "primaryCta": "Join us",
       "secondaryCta": "Read the charter"
     }
@@ -111,14 +111,14 @@
   "join": {
     "hero": {
       "title": "Join us",
-      "lead": "One click makes you a community member. Joining the org as staff takes an application — both are on this page."
+      "lead": "One click puts you in a community group. Joining the org as staff takes an application — both are on this page."
     },
     "steps": {
       "title": "Three steps to join the org",
       "items": [
         {
           "title": "Join a community first",
-          "text": "Pick QQ or Discord and click through — that makes you a community member."
+          "text": "Pick QQ or Discord and click through — you're a member of that group."
         },
         {
           "title": "Talk to the mod team",
@@ -157,7 +157,7 @@
       "items": [
         {
           "q": "Is joining the group the same as joining the org?",
-          "a": "No. Joining the group makes you a community member — hang out however you like. Joining the org means applying to become staff: a review, and real responsibilities."
+          "a": "No. Joining a group just makes you a member of that group — hang out however you like. Joining the org means applying to become staff: a review, and real responsibilities."
         },
         {
           "q": "QQ or Discord?",
@@ -173,7 +173,7 @@
   "charter": {
     "hero": {
       "title": "Organization charter",
-      "lead": "How FuzzStar runs, and what members can expect — all written below."
+      "lead": "How FuzzStar runs, who counts as a group member and who counts as staff, and what rights and duties come with it."
     },
     "draft": {
       "title": "This is a draft",
@@ -190,7 +190,7 @@
           },
           {
             "no": "Article 2",
-            "text": "Its mission is to bring furry culture fans together, encourage creative exchange and content production, and provide members with a friendly, stable community environment."
+            "text": "Its mission is to bring furry culture fans together, encourage creative exchange and content production, and provide group members and staff with a friendly, stable community environment."
           },
           {
             "no": "Article 3",
@@ -203,20 +203,20 @@
         "articles": [
           {
             "no": "Article 4",
-            "text": "Any furry culture enthusiast who agrees with this charter and is willing to follow the community rules may apply for membership."
+            "text": "Joining a community group makes you a member of that group. Members of those groups who agree with this charter and are willing to follow the community rules may apply to become staff (org members)."
           },
           {
             "no": "Article 5",
-            "text": "How to join: enter a community group, contact the mod team to apply, and become a member once the review is approved."
+            "text": "How to join the org: group members apply to the mod team, submit what the mod team asks for, and become staff (org members) once the review is approved."
           },
           {
             "no": "Article 6",
-            "text": "Members are divided into general members and mod team members. The mod team handles day-to-day operations and decisions."
+            "text": "Staff are grouped by how they take part: the mod team and the creators. The mod team handles day-to-day operations and decisions."
           }
         ]
       },
       {
-        "title": "Chapter III — Rights of Members",
+        "title": "Chapter III — Rights of Staff",
         "articles": [
           {
             "no": "Article 7",
@@ -224,7 +224,7 @@
           },
           {
             "no": "Article 8",
-            "text": "The right to share opinions and suggestions about the group's work and to take part in discussions that affect members."
+            "text": "The right to share opinions and suggestions about the group's work and to take part in discussions that affect staff."
           },
           {
             "no": "Article 9",
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "title": "Chapter IV — Obligations of Members",
+        "title": "Chapter IV — Community Obligations",
         "articles": [
           {
             "no": "Article 11",
@@ -262,7 +262,7 @@
         "articles": [
           {
             "no": "Article 15",
-            "text": "The mod team is the group's executive body, made up of the founders and approved members."
+            "text": "The mod team is the group's executive body, made up of the founders and approved staff."
           },
           {
             "no": "Article 16",
@@ -270,7 +270,7 @@
           },
           {
             "no": "Article 17",
-            "text": "Important matters affecting members' shared interests should first be opened for community feedback, then decided by the mod team."
+            "text": "Important matters affecting staff's shared interests should first be opened for community feedback, then decided by the mod team."
           }
         ]
       },
@@ -279,11 +279,11 @@
         "articles": [
           {
             "no": "Article 18",
-            "text": "Members who violate the charter or community rules may, depending on severity, receive a warning, a suspension of privileges, or removal from the community."
+            "text": "Group members who violate the charter or community rules may, depending on severity, receive a warning, a suspension of privileges, or removal from the community."
           },
           {
             "no": "Article 19",
-            "text": "A member who objects to a decision may appeal to the mod team after being notified, and the mod team shall respond."
+            "text": "A group member who objects to a decision may appeal to the mod team after being notified, and the mod team shall respond."
           },
           {
             "no": "Article 20",
@@ -326,7 +326,7 @@
   "members": {
     "hero": {
       "title": "Members",
-      "lead": "The people keeping the org going, grouped by what they do."
+      "lead": "The staff list, grouped by what they do."
     },
     "copy": "Click to copy",
     "copied": "Copied",
@@ -376,7 +376,7 @@
     },
     "members": {
       "title": "Members",
-      "description": "The FuzzStar member list: management, creators, and members, grouped by role."
+      "description": "The FuzzStar staff list: the mod team and creators, grouped by role."
     },
     "links": {
       "title": "Links",

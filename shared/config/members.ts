@@ -1,4 +1,5 @@
 // 成员列表数据：分类和成员都在这里维护，页面按配置渲染
+// 这里列的全是组织内成员（staff），按分工分组；社区群成员不在此列
 // 文案带 zh/en 两份，切换语言时自动跟随
 
 export interface LocalizedText {
@@ -52,14 +53,6 @@ export const memberCategories: MemberCategory[] = [
     description: {
       zh: '拍片、剪辑、画画、写东西的人。',
       en: 'The ones shooting, editing, drawing, and writing.',
-    },
-  },
-  {
-    id: 'members',
-    label: { zh: '普通成员', en: 'Members' },
-    description: {
-      zh: '社区的日常主力，缺人手时也来搭把手。',
-      en: 'The regulars who keep the community going.',
     },
   },
 ]
