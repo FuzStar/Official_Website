@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "join": "Join Us",
+    "join": "Join us",
     "charter": "Charter",
     "members": "Members",
     "links": "Links",
@@ -80,7 +80,7 @@
           "text": "Videos, write-ups, fan works — the org divides up the work, and members are free to start their own projects. Need a hand? Just ask."
         },
         {
-          "title": "Community running",
+          "title": "Running the community",
           "text": "Two community groups, kept alive by everyone: mods hold the line, members help each other out."
         },
         {
@@ -112,22 +112,22 @@
   "join": {
     "hero": {
       "title": "Join us",
-      "lead": "Community links on this page, plus exactly how member approval works."
+      "lead": "One click makes you a community member. Joining the org as staff takes an application — both are on this page."
     },
     "steps": {
-      "title": "Become a member in three steps",
+      "title": "Three steps to join the org",
       "items": [
         {
-          "title": "Pick a community",
-          "text": "QQ or Discord — click the link and you're in."
+          "title": "Join a community first",
+          "text": "Pick QQ or Discord and click through — that makes you a community member."
         },
         {
           "title": "Talk to the mod team",
-          "text": "Once inside, reach out to the mod team and say you'd like to apply."
+          "text": "Once inside, tell the mod team you'd like to apply to the org."
         },
         {
           "title": "Pass the review",
-          "text": "Follow their instructions to submit your info. Once approved, you're a full member."
+          "text": "Follow their instructions to submit your info. Once approved, you're staff."
         }
       ]
     },
@@ -140,13 +140,13 @@
       },
       "discord": {
         "name": "Discord",
-        "text": "For friends abroad, or anyone who lives in Discord.",
+        "text": "For friends abroad, or anyone who prefers Discord.",
         "button": "Join Discord"
       },
-      "note": "Not sure yet? Email us first:"
+      "note": "Here to hang out? Use the links above. Applying to the org? Keep reading. Questions? Email us:"
     },
     "requirements": {
-      "title": "Before you apply",
+      "title": "Before you apply to the org",
       "items": [
         "You agree with the charter and will follow the community rules.",
         "You respect other people's art, OCs, and privacy.",
@@ -158,7 +158,7 @@
       "items": [
         {
           "q": "Is joining the group the same as joining the org?",
-          "a": "No. The community group is open for hanging out; becoming a member means applying to the mod team for review."
+          "a": "No. Joining the group makes you a community member — hang out however you like. Joining the org means applying to become staff: a review, and real responsibilities."
         },
         {
           "q": "QQ or Discord?",
@@ -366,7 +366,7 @@
     },
     "join": {
       "title": "Join us",
-      "description": "Community links for FuzzStar (QQ and Discord), plus the full process for becoming a reviewed member."
+      "description": "Join FuzzStar: QQ and Discord community links, plus the full process for applying to the org as staff."
     },
     "charter": {
       "title": "Organization charter",

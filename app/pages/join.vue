@@ -16,14 +16,14 @@ const communities = computed(() => [
     name: t('join.communities.qq.name'),
     text: t('join.communities.qq.text'),
     button: t('join.communities.qq.button'),
-    icon: 'i-lucide-users',
+    icon: 'i-simple-icons-qq',
   },
   {
     href: siteConfig.communities.discord,
     name: t('join.communities.discord.name'),
     text: t('join.communities.discord.text'),
     button: t('join.communities.discord.button'),
-    icon: 'i-lucide-globe',
+    icon: 'i-simple-icons-discord',
   },
 ])
 </script>
