@@ -8,8 +8,7 @@
     "links": "Links",
     "docs": "Docs",
     "menu": "Menu",
-    "mainNav": "Main navigation",
-    "closeMenu": "Close menu"
+    "mainNav": "Main navigation"
   },
   "header": {
     "cta": "Join the community",
@@ -352,7 +351,6 @@
     "community": "Community",
     "qq": "QQ Group",
     "discord": "Discord",
-    "email": "Email",
     "rights": "All rights reserved"
   },
   "seo": {

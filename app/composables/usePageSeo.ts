@@ -24,6 +24,7 @@ export function usePageSeo(title: string, description: string) {
     ogSiteName: siteConfig.name,
     ogType: 'website',
     ogLocale: computed(() => (locale.value === 'zh' ? 'zh_CN' : 'en_US')),
+    ogLocaleAlternate: computed(() => (locale.value === 'zh' ? 'en_US' : 'zh_CN')),
     twitterCard: 'summary',
   })
 

@@ -69,7 +69,7 @@ const chapters = computed(() => tm('charter.chapters') as CharterChapter[])
                 :key="article.no"
                 class="text-default"
               >
-                <span class="mr-1 font-semibold text-primary">{{ article.no }}</span>{{ article.text }}
+                <span class="mr-2 font-semibold text-primary">{{ article.no }}</span>{{ article.text }}
               </p>
             </div>
           </section>

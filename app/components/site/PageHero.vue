@@ -15,9 +15,9 @@ defineProps<{
       <div class="absolute inset-0 [background-image:radial-gradient(var(--ui-border)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
     </div>
     <UContainer class="relative py-14 sm:py-20">
-      <div class="max-w-3xl space-y-4">
+      <div class="max-w-3xl space-y-6">
         <slot name="badge" />
-        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
           {{ title }}
         </h1>
         <p

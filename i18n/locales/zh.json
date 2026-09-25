@@ -8,8 +8,7 @@
     "links": "友情链接",
     "docs": "文档",
     "menu": "菜单",
-    "mainNav": "主导航",
-    "closeMenu": "关闭菜单"
+    "mainNav": "主导航"
   },
   "header": {
     "cta": "加入社区",
@@ -352,7 +351,6 @@
     "community": "社区",
     "qq": "QQ 群",
     "discord": "Discord",
-    "email": "邮箱",
     "rights": "保留所有权利"
   },
   "seo": {

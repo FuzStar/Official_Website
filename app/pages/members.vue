@@ -14,6 +14,7 @@ function pick(text?: { zh: string, en: string }): string | undefined {
 const groups = computed(() =>
   memberCategories
     .map(category => ({
+      id: category.id,
       label: pick(category.label) ?? category.id,
       description: pick(category.description),
       members: members.filter(member => member.category === category.id),
@@ -32,7 +33,7 @@ const groups = computed(() =>
     <UContainer class="space-y-14 py-14 sm:space-y-16 sm:py-20">
       <section
         v-for="group in groups"
-        :key="group.label"
+        :key="group.id"
       >
         <div class="max-w-2xl">
           <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">

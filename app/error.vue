@@ -23,7 +23,11 @@ function goHome() {
 <template>
   <div class="flex min-h-dvh flex-col">
     <SiteHeader />
-    <main class="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
+    <!-- 404 分支由 NotFound 组件自带留白，这里不再叠一层 -->
+    <main
+      class="flex flex-1 flex-col items-center justify-center px-4 text-center"
+      :class="isNotFound ? '' : 'py-20'"
+    >
       <template v-if="isNotFound">
         <SiteNotFound />
       </template>
