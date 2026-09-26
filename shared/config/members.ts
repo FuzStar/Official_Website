@@ -61,8 +61,8 @@ export const memberCategories: MemberCategory[] = [
     id: 'development',
     label: { zh: '开发部', en: 'Development' },
     description: {
-      zh: '网站、工具和素材，谁要改站都找他们。',
-      en: 'The website, tooling, and assets — talk to them about site changes.',
+      zh: '网站维护、开发项目，还有日常运维。',
+      en: 'Website upkeep, development projects, and day-to-day ops.',
     },
   },
   {
