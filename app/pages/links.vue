@@ -33,7 +33,7 @@ function markFailed(url: string) {
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          class="group rounded-2xl border border-default bg-default p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
+          class="group hover-lift rounded-2xl border border-default bg-default p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
         >
           <div class="flex items-start gap-4">
             <img
@@ -70,6 +70,24 @@ function markFailed(url: string) {
             </div>
           </div>
         </a>
+
+        <!-- 虚位以待：给以后想互挂的圈子留个位置，也提示可以主动联系 -->
+        <div class="flex flex-col justify-center rounded-2xl border border-dashed border-default p-6">
+          <div class="flex items-center gap-3">
+            <span
+              class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-muted text-muted"
+              aria-hidden="true"
+            >
+              <UIcon name="i-lucide-plus" class="size-5" />
+            </span>
+            <h2 class="text-lg font-semibold text-muted">
+              {{ t('links.vacant.title') }}
+            </h2>
+          </div>
+          <p class="mt-1.5 text-sm leading-relaxed text-muted">
+            {{ t('links.vacant.text') }}
+          </p>
+        </div>
       </div>
     </UContainer>
   </div>

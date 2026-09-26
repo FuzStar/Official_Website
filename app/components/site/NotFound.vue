@@ -5,9 +5,7 @@ const localePath = useLocalePath()
 
 <template>
   <div class="flex min-h-[55vh] flex-col items-center justify-center px-4 py-24 text-center">
-    <span class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-      <UIcon name="i-lucide-compass" class="size-7" />
-    </span>
+    <SitePawMark />
     <p class="mt-6 text-sm font-semibold text-primary">
       404
     </p>

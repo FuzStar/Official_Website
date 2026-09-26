@@ -9,6 +9,17 @@
   --font-sans: "Public Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
 }
 
+/*
+ * 爪印纹样：纯路径绘制，不临摹任何现成图形或他人设子。
+ * 语义上只表示"到场/足迹"，刻意避开项圈、锁链一类的联想。
+ * 集中定义成变量，页面里用 [background-image:var(--paw-tile)] 引用。
+ */
+@theme {
+  /* 一颗爪印 + 四趾，落在 120×120 的格子里 */
+  --paw-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23000'%3E%3Cellipse cx='6.4' cy='8.6' rx='2.1' ry='2.8' transform='rotate(-18 6.4 8.6)'/%3E%3Cellipse cx='11' cy='6.4' rx='2.05' ry='2.9'/%3E%3Cellipse cx='15.9' cy='7.9' rx='2.05' ry='2.75' transform='rotate(14 15.9 7.9)'/%3E%3Cellipse cx='19.6' cy='11.4' rx='1.85' ry='2.4' transform='rotate(32 19.6 11.4)'/%3E%3Cpath d='M12 12.6c3.5 0 6.3 2.7 6.3 5.4 0 2-1.6 3.3-3.7 3.3-1 0-1.8-.3-2.6-.3s-1.6.3-2.6.3c-2.1 0-3.7-1.3-3.7-3.3 0-2.7 2.8-5.4 6.3-5.4z'/%3E%3C/g%3E%3C/svg%3E");
+  --paw-tile-size: 132px;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -47,5 +58,53 @@
 
   ::selection {
     background-color: color-mix(in oklab, var(--ui-primary) 25%, transparent);
+  }
+
+  /*
+   * 动效降级：卡片悬停的位移、阴影过渡在开启"减少动态效果"时全部关掉，
+   * 只保留颜色变化这类不产生位移的反馈。
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .hover-lift {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+/*
+ * 卡片悬停抬升。单独成类，方便上面那条降级规则精确关掉它，
+ * 不用去逐个组件改 transform。
+ */
+@layer components {
+  .hover-lift {
+    transition-property: transform, box-shadow, border-color, background-color;
+    transition-timing-function: var(--ui-ease);
+    transition-duration: 200ms;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/*
+ * 对比度修正。实测（WCAG 2.1）：
+ * 浅色下 text-dimmed 落在 neutral-400，对白底只有 2.62:1，正文级文字不达标；
+ * primary 当普通文字用时 4.40:1，差一点点到 4.5:1。
+ * 各上调一档，只动浅色，深色本来就达标。
+ */
+@layer base {
+  .light {
+    --ui-text-dimmed: var(--ui-color-neutral-500);
+    --ui-primary: var(--ui-color-primary-600);
   }
 }

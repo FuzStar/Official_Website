@@ -32,9 +32,7 @@ function goHome() {
         <SiteNotFound />
       </template>
       <template v-else>
-        <span class="flex size-14 items-center justify-center rounded-2xl bg-error/10 text-error">
-          <UIcon name="i-lucide-triangle-alert" class="size-7" />
-        </span>
+        <SitePawMark class="bg-error/10 text-error" />
         <p class="mt-6 text-sm font-semibold text-error">
           {{ props.error?.statusCode }}
         </p>

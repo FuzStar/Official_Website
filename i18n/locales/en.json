@@ -336,6 +336,10 @@
     "hero": {
       "title": "Links",
       "lead": "Friends we visit often — drop by and say hi."
+    },
+    "vacant": {
+      "title": "Open spot",
+      "text": "Want to trade links? Drop us a line and we'll add you."
     }
   },
   "notFound": {

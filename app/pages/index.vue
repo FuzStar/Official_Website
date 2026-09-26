@@ -24,14 +24,32 @@ const directions = computed(() => {
   <div>
     <!-- 首屏 -->
     <section class="relative overflow-hidden">
+      <SiteHeroBackdrop />
+
+      <!--
+        右侧的大爪印：纯几何、放低透明度、只在宽屏出现。
+        不画角色——一是避免踩到 OC 版权和设定争议，二是几何形状
+        比任何角色图都更耐看，也不会过时。
+      -->
       <div
+        class="pointer-events-none absolute -top-10 right-[-6%] hidden text-primary opacity-[0.07] lg:block xl:right-[-2%]"
         aria-hidden="true"
-        class="pointer-events-none absolute inset-0"
       >
-        <div class="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-primary/8 to-transparent" />
-        <!-- 顶部点阵，往下淡出 -->
-        <div class="absolute inset-0 [background-image:radial-gradient(var(--ui-border)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-[26rem] 2xl:size-[34rem]"
+        >
+          <g>
+            <ellipse cx="6.4" cy="8.6" rx="2.1" ry="2.8" transform="rotate(-18 6.4 8.6)" />
+            <ellipse cx="11" cy="6.4" rx="2.05" ry="2.9" />
+            <ellipse cx="15.9" cy="7.9" rx="2.05" ry="2.75" transform="rotate(14 15.9 7.9)" />
+            <ellipse cx="19.6" cy="11.4" rx="1.85" ry="2.4" transform="rotate(32 19.6 11.4)" />
+            <path d="M12 12.6c3.5 0 6.3 2.7 6.3 5.4 0 2-1.6 3.3-3.7 3.3-1 0-1.8-.3-2.6-.3s-1.6.3-2.6.3c-2.1 0-3.7-1.3-3.7-3.3 0-2.7 2.8-5.4 6.3-5.4z" />
+          </g>
+        </svg>
       </div>
+
       <UContainer class="relative py-16 sm:py-24">
         <div class="max-w-3xl">
           <UBadge
@@ -84,7 +102,7 @@ const directions = computed(() => {
           <div
             v-for="item in directions"
             :key="item.title"
-            class="group rounded-2xl border border-default bg-default p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
+            class="group hover-lift rounded-2xl border border-default bg-default p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
           >
             <span class="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <UIcon :name="item.icon" class="size-4.5" />
