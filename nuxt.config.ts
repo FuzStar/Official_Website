@@ -21,6 +21,13 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        // iOS 的收藏夹不认 SVG，补一张 PNG
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/manifest.webmanifest' },
+      ],
+      meta: [
+        // 移动端浏览器地址栏跟随品牌色
+        { name: 'theme-color', content: '#8b5cf6' },
       ],
     },
   },

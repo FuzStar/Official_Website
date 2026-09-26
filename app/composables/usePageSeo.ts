@@ -15,6 +15,9 @@ export function usePageSeo(title: string, description: string) {
   const zhUrl = computed(() => siteConfig.url + switchLocalePath('zh'))
   const enUrl = computed(() => siteConfig.url + switchLocalePath('en'))
 
+  // 分享图分中英两张，英文页不该挂中文图
+  const ogImage = computed(() => `${siteConfig.url}/${locale.value === 'zh' ? 'og-image.png' : 'og-image-en.png'}`)
+
   useSeoMeta({
     title,
     description,
@@ -25,7 +28,11 @@ export function usePageSeo(title: string, description: string) {
     ogType: 'website',
     ogLocale: computed(() => (locale.value === 'zh' ? 'zh_CN' : 'en_US')),
     ogLocaleAlternate: computed(() => (locale.value === 'zh' ? 'en_US' : 'zh_CN')),
-    twitterCard: 'summary',
+    ogImage,
+    ogImageAlt: siteConfig.name,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    twitterCard: 'summary_large_image',
   })
 
   useHead({

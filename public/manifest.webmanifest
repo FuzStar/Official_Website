@@ -1,0 +1,17 @@
+{
+  "name": "FuzzStar",
+  "short_name": "FuzzStar",
+  "description": "国内福瑞文化爱好者组织",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
