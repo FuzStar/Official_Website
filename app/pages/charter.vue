@@ -14,10 +14,43 @@ interface CharterChapter {
 }
 
 const chapters = computed(() => tm('charter.chapters') as CharterChapter[])
+
+// 阅读进度：章程有二十多条，滚到一半时给个位置提示。
+// 只在客户端算，纯 CSS 无法拿到"正文区域"的位置。
+const progress = ref(0)
+let onScroll: (() => void) | undefined
+
+onMounted(() => {
+  onScroll = () => {
+    const el = document.documentElement
+    const total = el.scrollHeight - el.clientHeight
+    progress.value = total > 0 ? Math.min(1, el.scrollTop / total) : 0
+  }
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  if (!onScroll) return
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+})
 </script>
 
 <template>
   <div>
+    <!-- 阅读进度条：贴在 header 下沿，宽度即已读比例 -->
+    <div
+      class="sticky top-16 z-30 h-0.5 bg-transparent"
+      aria-hidden="true"
+    >
+      <div
+        class="h-full origin-left bg-primary"
+        :style="{ transform: `scaleX(${progress})` }"
+      />
+    </div>
+
     <SitePageHero
       :title="t('charter.hero.title')"
       :lead="t('charter.hero.lead')"

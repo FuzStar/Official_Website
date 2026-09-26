@@ -78,6 +78,28 @@
       box-shadow: none !important;
     }
   }
+
+  /*
+   * 中文排版微调。
+   * 标题上 tracking-tight 是给拉丁字母收紧字距的，中文方块字占满字身框，
+   * 负字距会让笔画在大字号下粘在一起，所以中文下取消负字距。
+   * 正文行高也按中文习惯放宽一点，英文维持原样。
+   */
+  :lang(zh) h1,
+  :lang(zh) h2,
+  :lang(zh) h3 {
+    letter-spacing: 0;
+  }
+
+  :lang(zh) p,
+  :lang(zh) li {
+    line-height: 1.75;
+  }
+
+  /* 中文段落里夹拉丁词时给一点呼吸感 */
+  :lang(zh) {
+    text-autospace: normal;
+  }
 }
 
 /*

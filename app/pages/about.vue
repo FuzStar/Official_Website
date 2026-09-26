@@ -43,7 +43,7 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
           <div
             v-for="(item, index) in work"
             :key="item.title"
-            class="rounded-2xl border border-default bg-default p-5"
+            class="rounded-2xl border border-default bg-default p-5 transition-colors hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
               <span class="flex size-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary">

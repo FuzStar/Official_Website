@@ -29,8 +29,18 @@ const communityLinks = computed(() => [
 </script>
 
 <template>
-  <footer class="border-t border-default bg-muted/40">
-    <UContainer class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]">
+  <footer class="relative overflow-hidden border-t border-default bg-muted/40">
+    <!-- 页脚爪印底纹：只在中大屏出现，透明度压到 3% -->
+    <div
+      class="pointer-events-none absolute inset-0 hidden opacity-[0.03] lg:block"
+      :style="{
+        backgroundImage: 'var(--paw-print)',
+        backgroundSize: 'var(--paw-tile-size) var(--paw-tile-size)',
+        maskImage: 'linear-gradient(to_top,black,transparent_70%)',
+      }"
+      aria-hidden="true"
+    />
+    <UContainer class="relative grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]">
       <div class="max-w-sm">
         <NuxtLink :to="localePath('index')" class="flex items-center gap-2">
           <span class="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary shadow-sm">
@@ -88,7 +98,7 @@ const communityLinks = computed(() => [
       </nav>
     </UContainer>
 
-    <UContainer class="flex flex-wrap items-center justify-between gap-3 border-t border-default/60 py-5">
+    <UContainer class="relative flex flex-wrap items-center justify-between gap-3 border-t border-default/60 py-5">
       <p class="text-xs text-muted">
         © {{ year }} {{ siteConfig.name }} · {{ t('footer.rights') }}
       </p>

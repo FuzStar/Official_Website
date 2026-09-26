@@ -100,7 +100,8 @@ async function writeToClipboard(text: string): Promise<boolean> {
 </script>
 
 <template>
-  <div class="rounded-2xl border border-default bg-default p-5">
+  <!-- 纯展示卡：只做边框和底色的轻微变化，不做抬升（卡片本身不可点） -->
+  <div class="rounded-2xl border border-default bg-default p-5 transition-colors hover:border-primary/30 hover:bg-primary/[0.02]">
     <div class="flex items-start gap-4">
       <img
         v-if="props.member.avatar && !avatarFailed"

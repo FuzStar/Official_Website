@@ -45,7 +45,7 @@ const communities = computed(() => [
           <li
             v-for="(step, index) in steps"
             :key="step.title"
-            class="rounded-2xl border border-default bg-default p-5"
+            class="rounded-2xl border border-default bg-default p-5 transition-colors hover:border-primary/30"
           >
             <span class="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
               {{ index + 1 }}
@@ -69,7 +69,7 @@ const communities = computed(() => [
           <div
             v-for="community in communities"
             :key="community.href"
-            class="flex flex-col rounded-2xl border border-default bg-default p-6"
+            class="flex flex-col rounded-2xl border border-default bg-default p-6 transition-colors hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
               <span class="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
