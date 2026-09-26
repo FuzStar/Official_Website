@@ -28,8 +28,9 @@ function markFailed(url: string) {
     <UContainer class="py-14 sm:py-20">
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <a
-          v-for="link in friendLinks"
+          v-for="(link, index) in friendLinks"
           :key="link.url"
+          v-reveal:index="index * 90"
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer nofollow"

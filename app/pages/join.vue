@@ -37,7 +37,7 @@ const communities = computed(() => [
 
     <UContainer class="space-y-16 py-14 sm:py-20">
       <!-- 三步 -->
-      <section>
+      <section v-reveal>
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.steps.title') }}
         </h2>
@@ -45,6 +45,7 @@ const communities = computed(() => [
           <li
             v-for="(step, index) in steps"
             :key="step.title"
+            v-reveal:index="index * 100"
             class="rounded-2xl border border-default bg-default p-5 transition-colors hover:border-primary/30"
           >
             <span class="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
@@ -61,14 +62,15 @@ const communities = computed(() => [
       </section>
 
       <!-- 社区入口 -->
-      <section>
+      <section v-reveal>
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.communities.title') }}
         </h2>
         <div class="mt-6 grid gap-5 sm:grid-cols-2">
           <div
-            v-for="community in communities"
+            v-for="(community, index) in communities"
             :key="community.href"
+            v-reveal:index="index * 110"
             class="flex flex-col rounded-2xl border border-default bg-default p-6 transition-colors hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
@@ -103,7 +105,10 @@ const communities = computed(() => [
       </section>
 
       <!-- 申请须知 -->
-      <section class="max-w-3xl">
+      <section
+        v-reveal
+        class="max-w-3xl"
+      >
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.requirements.title') }}
         </h2>
@@ -123,7 +128,10 @@ const communities = computed(() => [
       </section>
 
       <!-- FAQ -->
-      <section class="max-w-3xl">
+      <section
+        v-reveal
+        class="max-w-3xl"
+      >
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('join.faq.title') }}
         </h2>

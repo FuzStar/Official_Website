@@ -20,7 +20,10 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
 
     <UContainer class="space-y-16 py-14 sm:py-20">
       <!-- 起源 -->
-      <section class="max-w-3xl">
+      <section
+        v-reveal
+        class="max-w-3xl"
+      >
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.origin.title') }}
         </h2>
@@ -35,7 +38,7 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
       </section>
 
       <!-- 在做的事 -->
-      <section>
+      <section v-reveal>
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.work.title') }}
         </h2>
@@ -43,6 +46,7 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
           <div
             v-for="(item, index) in work"
             :key="item.title"
+            v-reveal:index="index * 80"
             class="rounded-2xl border border-default bg-default p-5 transition-colors hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
@@ -61,7 +65,10 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
       </section>
 
       <!-- 相处方式 -->
-      <section class="max-w-3xl">
+      <section
+        v-reveal
+        class="max-w-3xl"
+      >
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('about.values.title') }}
         </h2>
@@ -81,7 +88,10 @@ const workIcons = ['i-lucide-clapperboard', 'i-lucide-messages-square', 'i-lucid
       </section>
 
       <!-- 展望 -->
-      <section class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-10">
+      <section
+        v-reveal
+        class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-10"
+      >
         <div class="max-w-2xl">
           <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
             {{ t('about.outlook.title') }}

@@ -103,6 +103,196 @@
 }
 
 /*
+ * 动效系统。
+ * 全站只允许用这三档时长和这两条缓动曲线，避免每处各写各的。
+ * 进场类动作用 --ease-out-soft（快起慢停），状态切换用 --ease-in-out-soft。
+ */
+@theme {
+  --motion-fast: 140ms;
+  --motion-base: 240ms;
+  --motion-slow: 420ms;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/*
+ * 把 Nuxt UI 的颜色变量注册成 <color>。
+ * 自定义属性默认是不可插值的，注册之后切换主题配色时颜色才会平滑过渡，
+ * 而不是整个界面"啪"地换掉。不支持 @property 的浏览器会忽略这段，
+ * 表现和现在一样，只是少一层过渡。
+ */
+@property --ui-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8b5cf6;
+}
+
+@property --ui-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fff;
+}
+
+@property --ui-bg-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fafafa;
+}
+
+@property --ui-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --ui-text-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #71717a;
+}
+
+@property --ui-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+
+@layer base {
+  /* 换配色、换深浅色时，颜色跟着一起走 */
+  html {
+    transition:
+      --ui-primary var(--motion-base) var(--ease-in-out-soft),
+      --ui-bg var(--motion-base) var(--ease-in-out-soft),
+      --ui-bg-muted var(--motion-base) var(--ease-in-out-soft),
+      --ui-text var(--motion-base) var(--ease-in-out-soft),
+      --ui-text-muted var(--motion-base) var(--ease-in-out-soft),
+      --ui-border var(--motion-base) var(--ease-in-out-soft);
+  }
+
+  /*
+   * 入场：首屏元素按 --enter-delay 依次升起。
+   * 只在页面加载时跑一次，用 animation 而不是 transition。
+   */
+  @keyframes enter-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  [data-enter] {
+    animation: enter-rise var(--motion-slow) var(--ease-out-soft) both;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+
+  /*
+   * 滚动揭示：元素进入视口后上浮显现。
+   * 初始透明态只在 .has-reveal 下生效（该类由插件在客户端挂载），
+   * 万一脚本没跑起来，内容照常显示，不会变成一片空白。
+   */
+  .has-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .has-reveal [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--motion-slow) var(--ease-out-soft) var(--reveal-delay, 0ms),
+      transform var(--motion-slow) var(--ease-out-soft) var(--reveal-delay, 0ms);
+  }
+
+  /*
+   * 页面切换。
+   * 进场带一点点位移，退场只淡出——两头都位移会在切换瞬间出现"抖一下"。
+   */
+  .page-enter-active {
+    transition: opacity var(--motion-base) var(--ease-out-soft), transform var(--motion-base) var(--ease-out-soft);
+  }
+
+  .page-leave-active {
+    transition: opacity var(--motion-fast) linear;
+  }
+
+  .page-enter-from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .page-leave-to {
+    opacity: 0;
+  }
+
+  /*
+   * 主导航下划线：悬停时从左往右长出来。
+   * 只在悬停时出现，选中态仍靠底色表达，两者不重复。
+   */
+  .nav-underline {
+    position: relative;
+  }
+
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.45rem;
+    left: 0.75rem;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--motion-base) var(--ease-out-soft);
+  }
+
+  .nav-underline:hover::after,
+  .nav-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+/*
+ * 打印样式。
+ * 章程这类文件经常被人打印或存 PDF，屏幕上那一堆导航和动效都不该出现在纸上。
+ */
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+
+  /* 揭示动效在纸上没有意义，全部按最终状态输出 */
+  [data-reveal],
+  .has-reveal [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* 纸面上看不出链接去向，展开成网址 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  /* 条款不要被拦腰截断 */
+  section,
+  article {
+    break-inside: avoid;
+  }
+}
+
+/*
  * 卡片悬停抬升。单独成类，方便上面那条降级规则精确关掉它，
  * 不用去逐个组件改 transform。
  */

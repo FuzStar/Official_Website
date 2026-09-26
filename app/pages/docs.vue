@@ -23,7 +23,10 @@ usePageSeo(t('seo.docs.title'), t('seo.docs.description'))
     </SitePageHero>
 
     <UContainer class="py-14 sm:py-20">
-      <div class="mx-auto flex max-w-xl flex-col items-center rounded-3xl border border-default bg-default px-6 py-14 text-center">
+      <div
+        v-reveal
+        class="mx-auto flex max-w-xl flex-col items-center rounded-3xl border border-default bg-default px-6 py-14 text-center"
+      >
         <SitePawMark class="size-16 rounded-3xl" />
         <h2 class="mt-6 text-2xl font-bold tracking-tight sm:text-3xl">
           {{ t('docs.coming.title') }}

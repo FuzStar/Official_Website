@@ -91,6 +91,7 @@ onUnmounted(() => {
             v-for="(chapter, index) in chapters"
             :id="`chapter-${index + 1}`"
             :key="chapter.title"
+            v-reveal
             class="scroll-mt-24 rounded-2xl border border-default bg-default p-6 sm:p-8"
           >
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">

@@ -70,7 +70,7 @@ watch(() => route.fullPath, () => {
           :exact="link.exact"
           active-class="text-primary bg-primary/10"
           inactive-class="text-muted hover:text-default hover:bg-muted"
-          class="rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+          class="nav-underline rounded-lg px-3 py-2 text-sm font-medium transition-colors"
         >
           {{ link.label }}
         </ULink>

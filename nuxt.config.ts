@@ -18,6 +18,12 @@ export default defineNuxtConfig({
   },
 
   app: {
+    // 页面切换：极短的淡入淡出，只为了消掉白闪，不拖慢浏览节奏。
+    // 时长由 main.css 里的 .page-* 规则接管，开启"减少动态效果"时自动失效。
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
     head: {
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },

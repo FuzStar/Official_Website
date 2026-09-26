@@ -34,6 +34,7 @@ const groups = computed(() =>
       <section
         v-for="group in groups"
         :key="group.id"
+        v-reveal
       >
         <div class="max-w-2xl">
           <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">

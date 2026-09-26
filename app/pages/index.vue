@@ -12,11 +12,37 @@ const directionIcons: Record<string, string> = {
 }
 
 const directions = computed(() => {
-  const items = tm('home.directions.items') as { icon: string; title: string; text: string }[]
+  const items = tm('home.directions.items') as { icon: string, title: string, text: string }[]
   return items.map(item => ({
     ...item,
     icon: directionIcons[item.icon] ?? 'i-lucide-star',
   }))
+})
+
+/*
+ * 首屏大爪印的视差：滚动时它比页面慢一截，滑动过程里能感觉到层次。
+ * 位移量刻意压得很小（原滚动距离的 18%），免得变成明显的"飘"。
+ */
+const pawOffset = ref(0)
+let onScroll: (() => void) | undefined
+let ticking = false
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+  onScroll = () => {
+    if (ticking) return
+    ticking = true
+    requestAnimationFrame(() => {
+      pawOffset.value = Math.min(window.scrollY, 900) * 0.18
+      ticking = false
+    })
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  if (onScroll) window.removeEventListener('scroll', onScroll)
 })
 </script>
 
@@ -32,7 +58,8 @@ const directions = computed(() => {
         比任何角色图都更耐看，也不会过时。
       -->
       <div
-        class="pointer-events-none absolute -top-10 right-[-6%] hidden text-primary opacity-[0.07] lg:block xl:right-[-2%]"
+        class="pointer-events-none absolute -top-10 right-[-6%] hidden will-change-transform text-primary opacity-[0.07] lg:block xl:right-[-2%]"
+        :style="{ transform: `translateY(${pawOffset}px)` }"
         aria-hidden="true"
       >
         <svg
@@ -55,16 +82,29 @@ const directions = computed(() => {
           <UBadge
             color="primary"
             variant="subtle"
+            data-enter
           >
             {{ t('home.hero.badge') }}
           </UBadge>
-          <h1 class="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+          <h1
+            data-enter
+            class="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-6xl"
+            :style="{ '--enter-delay': '70ms' }"
+          >
             {{ t('home.hero.title') }}
           </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p
+            data-enter
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-muted"
+            :style="{ '--enter-delay': '140ms' }"
+          >
             {{ t('home.hero.lead') }}
           </p>
-          <div class="mt-8 flex flex-wrap gap-3">
+          <div
+            data-enter
+            class="mt-8 flex flex-wrap gap-3"
+            :style="{ '--enter-delay': '210ms' }"
+          >
             <UButton
               :to="localePath('join')"
               size="lg"
@@ -89,7 +129,10 @@ const directions = computed(() => {
     <!-- 三块方向 -->
     <section class="py-16 sm:py-20">
       <UContainer>
-        <div class="max-w-2xl">
+        <div
+          v-reveal
+          class="max-w-2xl"
+        >
           <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
             {{ t('home.directions.title') }}
           </h2>
@@ -100,8 +143,9 @@ const directions = computed(() => {
 
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <div
-            v-for="item in directions"
+            v-for="(item, index) in directions"
             :key="item.title"
+            v-reveal:index="index * 90"
             class="group hover-lift rounded-2xl border border-default bg-default p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
           >
             <span class="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -121,7 +165,10 @@ const directions = computed(() => {
     <!-- 收尾 CTA -->
     <section class="py-16 sm:py-20">
       <UContainer>
-        <div class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-12">
+        <div
+          v-reveal
+          class="rounded-3xl border border-primary/15 bg-primary/5 p-8 dark:bg-primary/10 sm:p-12"
+        >
           <div class="max-w-xl">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
               {{ t('home.ctaBand.title') }}
