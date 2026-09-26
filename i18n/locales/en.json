@@ -187,7 +187,7 @@
         "articles": [
           {
             "no": "Article 1",
-            "text": "The organization is named FuzzStar, a non-profit interest group made up primarily of furry culture enthusiasts in China."
+            "text": "The organization is named FuzzStar: a volunteer, non-profit interest group made up primarily of furry culture enthusiasts in China."
           },
           {
             "no": "Article 2",
@@ -195,7 +195,11 @@
           },
           {
             "no": "Article 3",
-            "text": "The organization is not for profit, and must not be used as a name for any illegal or non-compliant activity."
+            "text": "The organization is not for profit, must not be used for any illegal activity, and must not be used to seek improper benefit for any individual."
+          },
+          {
+            "no": "Article 4",
+            "text": "This charter is an internal agreement that defines member status, departmental duties, and standards of conduct. It creates no rights or obligations under the law; where laws apply, those laws prevail."
           }
         ]
       },
@@ -203,109 +207,170 @@
         "title": "Chapter II — Membership",
         "articles": [
           {
-            "no": "Article 4",
+            "no": "Article 5",
             "text": "Joining a community group makes you a member of that group. Members of those groups who agree with this charter and are willing to follow the community rules may apply to become staff (org members)."
           },
           {
-            "no": "Article 5",
-            "text": "How to join the org: group members apply to the mod team, submit what the mod team asks for, and become staff (org members) once the review is approved."
+            "no": "Article 6",
+            "text": "How to join the org: group members apply to the mod team, submit what the mod team asks for, and become staff once the review is approved."
           },
           {
-            "no": "Article 6",
-            "text": "Staff are grouped by how they take part: the mod team and the creators. The mod team handles day-to-day operations and decisions."
-          }
-        ]
-      },
-      {
-        "title": "Chapter III — Rights of Staff",
-        "articles": [
-          {
             "no": "Article 7",
-            "text": "The right to take part in events and projects organized by the group, and to use the community resources it provides."
+            "text": "Staff are organized into three parallel departments — Creators, Development, and Community — with the duties set out in Chapter III. The mod team is the executive body, drawn from staff and confirmed by the mod team."
           },
           {
             "no": "Article 8",
-            "text": "The right to share opinions and suggestions about the group's work and to take part in discussions that affect staff."
-          },
+            "text": "Withdrawal: anyone may leave a community group at any time. Staff may resign by giving the mod team notice and handing over their duties. Resigning does not affect their standing as a group member."
+          }
+        ]
+      },
+      {
+        "title": "Chapter III — Departments and Decisions",
+        "articles": [
           {
             "no": "Article 9",
-            "text": "The right to oversee the mod team's work and to appeal decisions that concern oneself."
+            "text": "Mod team duties: day-to-day operations, external contact, keeping and publishing the accounts, enforcing this charter, and carrying out discipline."
           },
           {
             "no": "Article 10",
-            "text": "Members retain authorship and copyright over their own works and OCs; others may not repost or use them without permission."
-          }
-        ]
-      },
-      {
-        "title": "Chapter IV — Community Obligations",
-        "articles": [
+            "text": "Creators department duties: content creation, including video, written work and fan works, plus producing content for events."
+          },
           {
             "no": "Article 11",
-            "text": "Follow this charter and all rules of the community groups."
+            "text": "Development department duties: maintaining the website and tooling, technical support, and asset and data management."
           },
           {
             "no": "Article 12",
-            "text": "Respect other members: no personal attacks, no flame wars, no harassment."
+            "text": "Community department duties: day-to-day group operations, organizing and running events, member reception, and onboarding newcomers."
           },
           {
             "no": "Article 13",
-            "text": "Respect others' creations and copyrights; do not repost, misuse, or republish without the original author's permission."
-          },
-          {
-            "no": "Article 14",
-            "text": "Help maintain community order and report rule-breaking behavior to the mod team in a timely manner."
+            "text": "Each department works independently within its remit. Matters that cross departments, or that affect staff as a whole, are discussed and decided by the mod team."
           }
         ]
       },
       {
-        "title": "Chapter V — Structure",
+        "title": "Chapter IV — Rights of Staff",
         "articles": [
           {
+            "no": "Article 14",
+            "text": "The right to take part in departmental work, events, and projects, and to use the resources the group provides."
+          },
+          {
             "no": "Article 15",
-            "text": "The mod team is the group's executive body, made up of the founders and approved staff."
+            "text": "The right to share opinions and suggestions about the group's work and to join discussions that affect it."
           },
           {
             "no": "Article 16",
-            "text": "The mod team divides work internally across content, community, and events; exact roles are agreed within the team."
+            "text": "The right to know about the group's affairs and the published record of income and spending."
           },
           {
             "no": "Article 17",
-            "text": "Important matters affecting staff's shared interests should first be opened for community feedback, then decided by the mod team."
+            "text": "The right to appeal any decision that concerns oneself."
+          },
+          {
+            "no": "Article 18",
+            "text": "Staff retain authorship and copyright over their own works and OCs; others may not repost or use them without permission."
           }
         ]
       },
       {
-        "title": "Chapter VI — Discipline",
+        "title": "Chapter V — Conduct and Obligations",
         "articles": [
           {
-            "no": "Article 18",
-            "text": "Group members who violate the charter or community rules may, depending on severity, receive a warning, a suspension of privileges, or removal from the community."
-          },
-          {
             "no": "Article 19",
-            "text": "A group member who objects to a decision may appeal to the mod team after being notified, and the mod team shall respond."
+            "text": "Follow this charter and all rules of the community groups."
           },
           {
             "no": "Article 20",
-            "text": "Anyone using the organization's name for illegal activities or private profit shall be removed from the group."
+            "text": "Respect other members: no personal attacks, no flame wars, no harassment."
+          },
+          {
+            "no": "Article 21",
+            "text": "Respect others' creations and copyrights; do not repost, misuse, or republish without the original author's permission."
+          },
+          {
+            "no": "Article 22",
+            "text": "Protect personal privacy: do not dig up identities, do not share other people's personal information, chat logs, or images, and do not publish someone else's likeness without their consent."
+          },
+          {
+            "no": "Article 23",
+            "text": "Help maintain community order and report rule-breaking behavior to the mod team in a timely manner."
+          },
+          {
+            "no": "Article 24",
+            "text": "Do not engage in illegal activity or private profit in the organization's name."
+          },
+          {
+            "no": "Article 25",
+            "text": "Staff must also carry out their departmental duties, cooperate with the mod team, and not use their position for private gain."
           }
         ]
       },
       {
-        "title": "Chapter VII — Supplementary Provisions",
+        "title": "Chapter VI — Funding and Donations",
         "articles": [
           {
-            "no": "Article 21",
-            "text": "The right to interpret this charter belongs to the mod team."
+            "no": "Article 26",
+            "text": "Funding comes mainly from voluntary donations, used for events, tooling, and operating costs."
           },
           {
-            "no": "Article 22",
+            "no": "Article 27",
+            "text": "Donations are voluntary: nobody may pressure others to give, apportion a share, or demand money in the group's name."
+          },
+          {
+            "no": "Article 28",
+            "text": "Earmarked use: donated funds are spent on the agreed purpose and may not be diverted."
+          },
+          {
+            "no": "Article 29",
+            "text": "Open accounts: the mod team assigns a member to record income and spending, and this is published in the community after each event."
+          },
+          {
+            "no": "Article 30",
+            "text": "Non-profit: nobody may take a share, commission, or profit from group funds in the group's name."
+          }
+        ]
+      },
+      {
+        "title": "Chapter VII — Discipline",
+        "articles": [
+          {
+            "no": "Article 31",
+            "text": "For group members: depending on severity, a warning, limits on posting or other community privileges, or removal from the group."
+          },
+          {
+            "no": "Article 32",
+            "text": "For staff: depending on severity, a warning, suspension of departmental duties or privileges, or revocation of staff status."
+          },
+          {
+            "no": "Article 33",
+            "text": "Revoking staff status requires agreement from more than half of the mod team, and the reasons must be given to the person in writing."
+          },
+          {
+            "no": "Article 34",
+            "text": "Anyone disciplined may appeal to the mod team within seven days of being notified; the mod team must respond within seven days. One further review may be requested."
+          },
+          {
+            "no": "Article 35",
+            "text": "Anyone using the group's name for illegal activity or private profit loses all authorization and their staff status."
+          }
+        ]
+      },
+      {
+        "title": "Chapter VIII — Supplementary Provisions",
+        "articles": [
+          {
+            "no": "Article 36",
+            "text": "The mod team interprets this charter and publishes the interpretation to the community."
+          },
+          {
+            "no": "Article 37",
             "text": "Amendments must be discussed and passed by the mod team, and take effect after being announced to the community."
           },
           {
-            "no": "Article 23",
-            "text": "This charter takes effect on the date of publication."
+            "no": "Article 38",
+            "text": "This charter takes effect once the mod team ratifies it. Draft version v0.9, revised 26 September 2026."
           }
         ]
       }
@@ -381,7 +446,7 @@
     },
     "members": {
       "title": "Members",
-      "description": "The FuzzStar staff list: the mod team and creators, grouped by role."
+      "description": "The FuzzStar staff list: the mod team, creators, developers, and the community team, grouped by role."
     },
     "links": {
       "title": "Links",

@@ -38,10 +38,12 @@ export interface Member {
   links?: MemberLink[]
 }
 
+// 分类与章程第三章对应：管理组是执行机构，下面三个部门彼此平级。
+// 没有成员的分类不会在页面上显示。
 export const memberCategories: MemberCategory[] = [
   {
     id: 'management',
-    label: { zh: '管理组', en: 'Management' },
+    label: { zh: '管理组', en: 'Mod team' },
     description: {
       zh: '日常运营、审核和拍板的事都归他们管。',
       en: 'Runs the day-to-day: operations, reviews, and decisions.',
@@ -53,6 +55,22 @@ export const memberCategories: MemberCategory[] = [
     description: {
       zh: '拍片、剪辑、画画、写东西的人。',
       en: 'The ones shooting, editing, drawing, and writing.',
+    },
+  },
+  {
+    id: 'development',
+    label: { zh: '开发部', en: 'Development' },
+    description: {
+      zh: '网站、工具和素材，谁要改站都找他们。',
+      en: 'The website, tooling, and assets — talk to them about site changes.',
+    },
+  },
+  {
+    id: 'community',
+    label: { zh: '社区部', en: 'Community' },
+    description: {
+      zh: '群里的日常秩序、活动组织，还有接新人的事。',
+      en: 'Group logistics, events, and looking after newcomers.',
     },
   },
 ]
