@@ -137,7 +137,18 @@ const communities = computed(() => [
         </h2>
         <UAccordion
           :items="faq"
+          type="multiple"
+          :default-value="faq.map((_, index) => String(index))"
+          :unmount-on-hide="false"
           class="mt-5"
+          :ui="{
+            root: 'overflow-hidden rounded-2xl border border-default bg-default px-5',
+            // 问题必须比答案更醒目：字号抬到 16px，答案走 muted
+            trigger: 'py-4 text-base font-semibold hover:text-primary',
+            trailingIcon: 'transition-transform duration-300',
+            content: 'text-muted',
+            body: 'pb-5 text-[15px] leading-relaxed',
+          }"
         />
       </section>
     </UContainer>
