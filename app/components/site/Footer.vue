@@ -1,7 +1,23 @@
 <script setup lang="ts">
-import { site } from '#content'
+import { eggs, site } from '#content'
 
 const year = new Date().getFullYear()
+
+// 这两条彩蛋都要等到浏览器里才算得出来：凌晨那句按访客本地时间，年份那句按点击，
+// 放在构建期算的话，构建时的时辰会被写死进 HTML。
+const nightLine = ref('')
+const yearLine = ref('')
+
+const countYearClicks = createClickCounter(5)
+
+function pokeYear() {
+  if (countYearClicks()) yearLine.value = eggs.year
+}
+
+onMounted(() => {
+  const hour = new Date().getHours()
+  if (eggs.night && hour >= 0 && hour < 5) nightLine.value = eggs.night
+})
 </script>
 
 <template>
@@ -59,7 +75,11 @@ const year = new Date().getFullYear()
       <div
         class="mt-12 flex flex-col gap-3 border-t-2 border-ink-900/10 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between"
       >
-        <p>© {{ year }} {{ site.org.nameZh }} {{ site.org.name }}</p>
+        <div>
+          <p @click="pokeYear">© {{ year }} {{ site.org.nameZh }} {{ site.org.name }}</p>
+          <p v-if="nightLine" class="mt-1.5">{{ nightLine }}</p>
+          <p v-if="yearLine" class="mt-1.5 text-ink-400">{{ yearLine }}</p>
+        </div>
 
         <a
           v-if="site.icp"

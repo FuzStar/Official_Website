@@ -14,5 +14,7 @@
     </main>
 
     <SiteFooter />
+
+    <SiteEasterEggs />
   </div>
 </template>

@@ -84,9 +84,23 @@ declare module '#content' {
     html: string
   }
 
+  // 站点彩蛋，文案在 content/eggs.yaml。每条的 text 为空就等于关掉它，
+  // 所以页面拿到的一律是字符串，不是可选字段。
+  export interface EggsContent {
+    konami: string
+    typing: { keys: string; text: string }
+    paw: string
+    night: string
+    year: string
+    lost: string
+    console: string
+    comment: string
+  }
+
   export const site: SiteContent
   export const about: { lead: string; sections: AboutSection[] }
   export const members: Member[]
   export const friends: Friend[]
   export const notices: Notice[]
+  export const eggs: EggsContent
 }

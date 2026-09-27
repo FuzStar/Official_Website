@@ -75,6 +75,25 @@ function prepareSite(raw: Record<string, unknown>) {
   }
 }
 
+// 彩蛋文案。每条的 text 留空就等于关掉它，所以空值一律收敛成空串，
+// 页面只判断字符串有没有内容，不判断字段在不在。
+const asText = (value: unknown): string => (typeof value === 'string' ? value.trim() : '')
+
+function prepareEggs(raw: Record<string, unknown> | null) {
+  const typing = (raw?.typing ?? {}) as Record<string, unknown>
+
+  return {
+    konami: asText((raw?.konami as Record<string, unknown>)?.text),
+    typing: { keys: asText(typing.keys), text: asText(typing.text) },
+    paw: asText((raw?.paw as Record<string, unknown>)?.text),
+    night: asText((raw?.night as Record<string, unknown>)?.text),
+    year: asText((raw?.year as Record<string, unknown>)?.text),
+    lost: asText((raw?.lost as Record<string, unknown>)?.text),
+    console: asText(raw?.console),
+    comment: asText(raw?.comment),
+  }
+}
+
 export default defineNuxtModule({
   meta: { name: 'content-layer' },
 
@@ -133,6 +152,7 @@ export default defineNuxtModule({
         const members = withAvatar(readYaml<MemberEntry[]>('members.yaml') ?? [])
         const friends = readYaml<Record<string, unknown>[]>('friends.yaml') ?? []
         const notices = readNotices()
+        const eggs = prepareEggs(readYaml<Record<string, unknown>>('eggs.yaml'))
 
         return [
           `export const site = ${JSON.stringify(site, null, 2)}`,
@@ -140,6 +160,7 @@ export default defineNuxtModule({
           `export const members = ${JSON.stringify(members, null, 2)}`,
           `export const friends = ${JSON.stringify(friends, null, 2)}`,
           `export const notices = ${JSON.stringify(notices, null, 2)}`,
+          `export const eggs = ${JSON.stringify(eggs, null, 2)}`,
           '',
         ].join('\n')
       },

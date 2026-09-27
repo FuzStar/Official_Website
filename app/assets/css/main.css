@@ -343,6 +343,55 @@
   transform: translateY(6px);
 }
 
+/* 彩蛋：键盘序列触发的落星星。位置、大小、时长由组件按颗塞进内联样式 */
+.egg-star {
+  position: absolute;
+  top: -6vh;
+  animation-name: egg-star-fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes egg-star-fall {
+  from {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(112vh) rotate(300deg);
+    opacity: 0;
+  }
+}
+
+/* 彩蛋触发的提示气泡 */
+.egg-toast-enter-active,
+.egg-toast-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.egg-toast-enter-from,
+.egg-toast-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ?paw=1 时的爪子光标。可点的东西仍给 pointer，免得藏掉"这里能点"的提示 */
+html.paw-cursor,
+html.paw-cursor * {
+  cursor: url("/cursor/paw.png") 4 3, auto;
+}
+
+html.paw-cursor a,
+html.paw-cursor button,
+html.paw-cursor [role="button"] {
+  cursor: url("/cursor/paw.png") 4 3, pointer;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -364,5 +413,10 @@
 
   .sticker-card-hover:hover {
     transform: none;
+  }
+
+  .egg-toast-enter-active,
+  .egg-toast-leave-active {
+    transition: none;
   }
 }
