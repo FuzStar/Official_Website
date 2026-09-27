@@ -43,6 +43,12 @@ declare module '#content' {
     collaboration: string
   }
 
+  export interface AboutSection {
+    title: string
+    // 在 content/about.yaml 里按 markdown 写，构建期已渲染成 HTML
+    body: string
+  }
+
   export interface MemberLink {
     label: string
     url?: string
@@ -80,6 +86,7 @@ declare module '#content' {
   }
 
   export const site: SiteContent
+  export const about: { lead: string; sections: AboutSection[] }
   export const members: Member[]
   export const friends: Friend[]
   export const notices: Notice[]

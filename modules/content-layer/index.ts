@@ -44,6 +44,21 @@ const withAvatar = (members: MemberEntry[]) =>
 const renderRich = (value: unknown): string =>
   typeof value === 'string' && value.trim() ? md.render(value).trim() : ''
 
+interface AboutSectionEntry {
+  title?: unknown
+  body?: unknown
+}
+
+// "关于我们"页的板块列表，每块的正文按 markdown 写，构建期渲染成 HTML。
+// 板块数量由内容决定，页面只管按顺序铺开，加一块不用改代码。
+const prepareAbout = (raw: { lead?: unknown; sections?: AboutSectionEntry[] } | null) => ({
+  lead: typeof raw?.lead === 'string' ? raw.lead : '',
+  sections: (Array.isArray(raw?.sections) ? raw.sections : []).map((section) => ({
+    title: typeof section?.title === 'string' ? section.title : '',
+    body: renderRich(section?.body),
+  })),
+})
+
 // 只有这几个长文字字段走 markdown，标题、人数这类短字段保持原样，
 // 免得管理组写岗位名时无意间敲进个星号就被当成强调语法吃掉。
 function prepareSite(raw: Record<string, unknown>) {
@@ -116,12 +131,14 @@ export default defineNuxtModule({
       write: true,
       getContents: () => {
         const site = prepareSite(readYaml<Record<string, unknown>>('site.yaml') ?? {})
+        const about = prepareAbout(readYaml<{ lead?: unknown; sections?: AboutSectionEntry[] }>('about.yaml'))
         const members = withAvatar(readYaml<MemberEntry[]>('members.yaml') ?? [])
         const friends = readYaml<Record<string, unknown>[]>('friends.yaml') ?? []
         const notices = readNotices()
 
         return [
           `export const site = ${JSON.stringify(site, null, 2)}`,
+          `export const about = ${JSON.stringify(about, null, 2)}`,
           `export const members = ${JSON.stringify(members, null, 2)}`,
           `export const friends = ${JSON.stringify(friends, null, 2)}`,
           `export const notices = ${JSON.stringify(notices, null, 2)}`,

@@ -67,6 +67,13 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
         <p class="mt-5 text-base leading-loose whitespace-pre-line text-ink-700">
           {{ site.org.intro }}
         </p>
+        <NuxtLink
+          to="/about"
+          class="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700 transition-all hover:gap-2.5"
+        >
+          了解更多
+          <UIcon name="lucide:arrow-right" class="size-4" />
+        </NuxtLink>
       </div>
     </section>
 

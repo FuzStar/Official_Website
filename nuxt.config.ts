@@ -56,6 +56,7 @@ export default defineNuxtConfig({
         'lucide:arrow-right',
         'lucide:arrow-up',
         'lucide:check',
+        'lucide:chevron-down',
         'lucide:chevron-right',
         'lucide:copy',
         'lucide:external-link',

@@ -320,6 +320,17 @@
   }
 }
 
+/* 手风琴面板的开关：只做很短的淡出。高度动画要算 scrollHeight，为这点观感不值当 */
+.role-panel-enter-active,
+.role-panel-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.role-panel-enter-from,
+.role-panel-leave-to {
+  opacity: 0;
+}
+
 /* 切页动画：只做很短的淡入上移，减少动态效果时直接关掉 */
 .page-enter-active,
 .page-leave-active {
@@ -339,6 +350,11 @@
 
   .page-enter-active,
   .page-leave-active {
+    transition: none;
+  }
+
+  .role-panel-enter-active,
+  .role-panel-leave-active {
     transition: none;
   }
 

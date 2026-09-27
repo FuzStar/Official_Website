@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const nav = [
   { label: '首页', to: '/' },
+  { label: '关于我们', to: '/about' },
   { label: '公告', to: '/news' },
   { label: '加入我们', to: '/join' },
   { label: '工作人员', to: '/team' },
