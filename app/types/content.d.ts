@@ -81,7 +81,6 @@ declare module '#content' {
     type: 'notice' | 'article'
     pinned: boolean
     summary: string
-    cover: string
     html: string
   }
 

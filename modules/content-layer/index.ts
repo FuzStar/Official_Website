@@ -15,7 +15,6 @@ interface NoticeFrontmatter {
   type?: string
   pinned?: boolean
   summary?: string
-  cover?: string
 }
 
 // frontmatter 里的日期会被 yaml 解析成 Date，统一收敛成 YYYY-MM-DD
@@ -116,7 +115,6 @@ export default defineNuxtModule({
             type: fm.type === 'article' ? 'article' : 'notice',
             pinned: fm.pinned === true,
             summary: fm.summary ?? '',
-            cover: fm.cover ?? '',
             html: md.render(content).trim(),
           }
         })
