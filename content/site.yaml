@@ -61,7 +61,7 @@ recruitNote: |-
 # 加岗位就复制一段改；slots 留空则不显示右上角的人数徽章。
 roles:
   - title: 开发部
-    slots: "" # 招几个人，留空就不显示徽章
+    slots: 招 4 人
     duty: |-
       社区 APP 的开发，以及官网的日常维护和迭代。
     requirement: |-
@@ -89,7 +89,7 @@ roles:
       部分项目代码暂不公开，进组后需遵守团队的保密约定。
 
   - title: 社区部
-    slots: ""
+    slots: 招 15 人
     duty: |-
       QQ 群、QQ 频道和 Discord 的日常管理，公告发布，以及线下聚会的筹备。
     requirement: |-
