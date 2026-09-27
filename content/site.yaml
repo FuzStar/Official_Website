@@ -7,9 +7,9 @@
 org:
   name: FuzzStar # 英文名，用在字标和搜索引擎标题里
   nameZh: 星绒社区 # 中文名
-  badge: "" # 首页标题上方那个小标签，写组织性质之类，留空就不显示，待填
-  tagline: "" # 首页大标题下面那一句，待填
-  intro: "" # 首页的介绍段落，待填
+  badge: 非官方兽圈社区 # 首页标题上方那个小标签，留空就不显示
+  tagline: 把散在各处的同好，聚到一处。
+  intro: 星绒社区（FuzzStar）是一个非官方的福瑞同好组织。现在主要聚在 QQ 群、QQ 频道和 Discord；线下聚会与社区 APP 都在筹备中。
 
 # 站点地址与对外联系方式
 url: https://fuzstar.org
@@ -23,12 +23,12 @@ icpUrl: https://beian.miit.gov.cn
 groups:
   - platform: qq # qq / qqchannel / discord / telegram，决定卡片上显示哪个图标
     name: FuzzStar
-    handle: "" # QQ 群号，填了会做成"点击复制"，待填
+    handle: "120371716" # QQ 群号，填了会做成"点击复制"
     url: https://qm.qq.com/q/bbhpq1IXu
     note: 国内首选添加，人员多
   - platform: qqchannel
     name: 星绒社区Official
-    handle: "" # 频道号，填了会做成"点击复制"，待填
+    handle: "pd10171931" # 频道号，填了会做成"点击复制"
     url: https://pd.qq.com/s/guxzvqx9i
     note: 官方 QQ 频道，可发帖
   - platform: discord
