@@ -1,0 +1,9 @@
+# 友链与合作。
+# 加一条：取消注释，复制一整段改内容。没有条目就整份文件只剩注释，页面上不会显示友链区。
+# logo 图片放进 public/logos/，这里写 /logos/文件名。
+# 合作方式的说明文字在 content/site.yaml 的 collaboration 字段里。
+
+# - name: 对方站点或组织名
+#   url: https://example.com # 网址，带 https://
+#   description: 一句话介绍。
+#   logo: /logos/xxx.png # 没有 logo 就留空

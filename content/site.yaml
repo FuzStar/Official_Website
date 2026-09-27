@@ -1,0 +1,46 @@
+# 站点全局信息。
+# 页面上的域名、邮箱、群链接、岗位全部从这份文件读，改完这里全站跟着变。
+# 引号里是空的就代表还没填，页面上会显示成待填提示，不会自己编内容。
+
+# 组织本体
+org:
+  name: FuzzStar # 英文名，用在字标和搜索引擎标题里
+  nameZh: 星绒社区 # 中文名
+  badge: "" # 首页标题上方那个小标签，写组织性质之类，留空就不显示，待填
+  tagline: "" # 首页大标题下面那一句，待填
+  intro: "" # 首页的介绍段落，待填
+
+# 站点地址与对外联系方式
+url: https://fuzstar.org
+email: max@fuzstar.org # 对外联系邮箱
+
+# ICP 备案号，拿到之后填这里，填了页脚才会显示备案信息
+icp: ""
+icpUrl: https://beian.miit.gov.cn
+
+# 社区群。首页和"加入我们"页都从这里渲染
+groups:
+  - platform: qq # qq / discord / telegram，决定卡片上显示哪个图标
+    name: "" # 群名，待填
+    handle: "" # 群号。填了会做成"点击复制"，待填
+    url: https://qm.qq.com/q/bbhpq1IXu
+    note: "" # 一句话说明这个群干什么，待填
+  - platform: discord
+    name: ""
+    handle: "" # Discord 没有群号就留空，复制按钮会自动隐藏
+    url: https://discord.gg/GAAKPFD9K
+    note: ""
+
+# 招募说明，"加入我们"页岗位列表上方显示。留空就不显示，待填
+recruitNote: ""
+
+# 招人的岗位，"加入我们"页的团队部分按这个列表渲染。
+# 加岗位就取消注释复制一段改；一个都不招就整段保持注释，页面会自动隐藏这块。
+# roles:
+#   - title: 名称 # 岗位名
+#     slots: 2 人 # 招几个人
+#     duty: 负责什么。
+#     requirement: 有什么要求。
+
+# "友链与合作"页底部的合作说明，待填
+collaboration: ""

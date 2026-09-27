@@ -1,0 +1,15 @@
+# Cloudflare Pages 的响应头配置，构建时会原样放到站点根目录。
+# 带内容哈希的产物可以长期缓存，改版后文件名会变，不会读到旧文件。
+
+/_nuxt/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/brand/*
+  Cache-Control: public, max-age=604800
+
+/fonts/*
+  Cache-Control: public, max-age=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
