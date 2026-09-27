@@ -23,3 +23,17 @@
     - label: 个人主页
       url: https://0xnm.cn
       icon: lucide:globe
+
+- name: 天·梦
+  avatar: /avatars/tianmeng.jpg
+  role: 宣传与管理
+  bio: 负责社区的各种事务，宣传与管理。
+  qq: "248809043"
+  email: 2722744241@qq.com
+  links:
+    - label: Discord
+      value: "@tianmeng_awa"
+      icon: simple-icons:discord
+    - label: GitHub
+      url: https://github.com/whb2722744241-ctrl
+      icon: simple-icons:github
