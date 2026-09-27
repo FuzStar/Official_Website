@@ -37,6 +37,8 @@ declare module '#content' {
     joinLead: string
     // 招募说明与通用要求，markdown 渲染后的 HTML
     recruitNote: string
+    // 首页"友链与合作"横幅上的一句话摘要，纯文本
+    collaborationLead: string
     // "友链与合作"页底部的合作说明，markdown 渲染后的 HTML
     collaboration: string
   }

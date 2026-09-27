@@ -114,8 +114,8 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
       >
         <div>
           <h2 class="text-xl font-extrabold text-ink-950 sm:text-2xl">友链与合作</h2>
-          <p v-if="site.collaboration" class="mt-2 max-w-xl text-ink-700">
-            {{ site.collaboration }}
+          <p v-if="site.collaborationLead" class="mt-2 max-w-xl text-ink-700">
+            {{ site.collaborationLead }}
           </p>
         </div>
 

@@ -71,7 +71,7 @@ pinned: false
 
 打开 `friends.yaml`，示例同样是注释状态，取消注释后复制多份改内容。logo 放进 `public/logos/`。
 
-合作方式的说明文字不在这里，在 `site.yaml` 的 `collaboration` 字段。
+合作方式的说明文字不在这里。`site.yaml` 的 `collaboration` 是"友链与合作"页底部的完整说明（按 markdown 写），`collaborationLead` 是首页那条横幅上的一句话摘要（纯文本）。
 
 ---
 
