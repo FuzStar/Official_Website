@@ -1,3 +1,8 @@
 {
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    // .nuxt/tsconfig.json 里 types 是空的，nuxt.config.ts 和 modules/ 用到的
+    // node:fs、process 会因此没有类型。这里只放行 node，不放开其它全局类型包。
+    "types": ["node"]
+  }
 }
