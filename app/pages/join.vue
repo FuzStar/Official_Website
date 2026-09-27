@@ -21,7 +21,7 @@ useSiteSeo({ title: '加入我们', description: site.org.tagline })
     <section id="groups" class="mx-auto max-w-6xl px-5 py-16 sm:px-8">
       <h2 class="text-2xl font-extrabold tracking-tight text-ink-950 sm:text-3xl">社区群</h2>
 
-      <div v-if="groups.length" class="mt-8 grid gap-5 sm:grid-cols-2">
+      <div v-if="groups.length" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <SiteGroupCard v-for="group in groups" :key="group.url" :group="group" />
       </div>
       <p

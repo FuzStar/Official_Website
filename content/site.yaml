@@ -19,18 +19,23 @@ email: max@fuzstar.org # 对外联系邮箱
 icp: ""
 icpUrl: https://beian.miit.gov.cn
 
-# 社区群。首页和"加入我们"页都从这里渲染
+# 社区群。首页和"加入我们"页都从这里渲染，顺序就是页面上的顺序
 groups:
-  - platform: qq # qq / discord / telegram，决定卡片上显示哪个图标
-    name: "" # 群名，待填
-    handle: "" # 群号。填了会做成"点击复制"，待填
+  - platform: qq # qq / qqchannel / discord / telegram，决定卡片上显示哪个图标
+    name: FuzzStar
+    handle: "" # QQ 群号，填了会做成"点击复制"，待填
     url: https://qm.qq.com/q/bbhpq1IXu
-    note: "" # 一句话说明这个群干什么，待填
+    note: 国内首选添加，人员多
+  - platform: qqchannel
+    name: 星绒社区Official
+    handle: "" # 频道号，填了会做成"点击复制"，待填
+    url: https://pd.qq.com/s/guxzvqx9i
+    note: 官方 QQ 频道，可发帖
   - platform: discord
-    name: ""
+    name: FuzzStar
     handle: "" # Discord 没有群号就留空，复制按钮会自动隐藏
     url: https://discord.gg/GAAKPFD9K
-    note: ""
+    note: 习惯使用 Discord 可添加
 
 # 招募说明，"加入我们"页岗位列表上方显示。留空就不显示，待填
 recruitNote: ""

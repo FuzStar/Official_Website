@@ -24,6 +24,21 @@ function toDateString(value: Date | string | undefined): string {
   return typeof value === 'string' ? value : ''
 }
 
+interface MemberEntry {
+  avatar?: string
+  qq?: string
+  [key: string]: unknown
+}
+
+// 名单里没写 avatar 但填了 qq 的，取该 QQ 的当前头像：链接直接给浏览器，
+// 对方换了头像页面跟着变。号码写错或接口不认时前端会回退成默认头像，不留破图。
+// 想固定用某张图就填 avatar，以那边为准。
+const withAvatar = (members: MemberEntry[]) =>
+  members.map((member) => ({
+    ...member,
+    avatar: member.avatar || (member.qq ? `https://q1.qlogo.cn/g?b=qq&nk=${member.qq}&s=140` : ''),
+  }))
+
 export default defineNuxtModule({
   meta: { name: 'content-layer' },
 
@@ -77,7 +92,7 @@ export default defineNuxtModule({
       write: true,
       getContents: () => {
         const site = readYaml('site.yaml') ?? {}
-        const members = readYaml('members.yaml') ?? []
+        const members = withAvatar(readYaml('members.yaml') ?? [])
         const friends = readYaml('friends.yaml') ?? []
         const notices = readNotices()
 

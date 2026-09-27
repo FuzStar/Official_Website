@@ -37,7 +37,9 @@ declare module '#content' {
 
   export interface MemberLink {
     label: string
-    url: string
+    url?: string
+    // 只有账号、没有可跳转链接的（比如 Discord 用户名）填这里，卡片上显示成不可点的文本
+    value?: string
     icon?: string
   }
 

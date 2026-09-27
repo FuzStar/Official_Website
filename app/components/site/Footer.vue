@@ -9,13 +9,6 @@ const nav = [
   { label: '友链与合作', to: '/friends' },
 ]
 
-// 群名没填时页脚用平台名叫，链接不能是空的
-const platformNames: Record<string, string> = {
-  qq: 'QQ 群',
-  discord: 'Discord',
-  telegram: 'Telegram',
-}
-
 const year = new Date().getFullYear()
 </script>
 
@@ -54,8 +47,8 @@ const year = new Date().getFullYear()
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-sm font-medium text-ink-700 transition-colors hover:text-brand-700"
               >
-                <UIcon :name="`simple-icons:${group.platform}`" class="size-4" />
-                {{ group.name || platformNames[group.platform] || '社群' }}
+                <UIcon :name="platformIcon(group.platform)" class="size-4" />
+                {{ group.name || platformLabel(group.platform) }}
               </a>
             </li>
           </ul>

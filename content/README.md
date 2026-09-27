@@ -43,20 +43,25 @@ pinned: false
 
 ## 加一个工作人员
 
-打开 `members.yaml`，最下面整段示例是注释状态。把这一段取消注释（去掉每行开头的 `#`），复制出多份改内容。
+打开 `members.yaml`，照着已有的一段复制出来改内容。必填 `name`，其他都能留空。
 
-必填 `name`，其他都能留空。头像图片放进 `public/avatars/` 目录，字段里写 `/avatars/文件名`。
+头像有两种填法：把图片放进 `public/avatars/` 目录、字段写 `/avatars/文件名`；
+或者 `avatar` 留空、只填 `qq`，网站就取那个 QQ 号当前的头像（对方换头像，页面跟着变）。
 
-想让某人显示 GitHub 或 Telegram 链接，把 `links` 展开成列表：
+`links` 是联系方式列表，展开写：
 
 ```
   links:
     - label: GitHub
       url: https://github.com/xxx
       icon: simple-icons:github
+    - label: Discord
+      value: "@用户名"
+      icon: simple-icons:discord
 ```
 
-`icon` 可以不写，不写就只显示文字。列表顺序就是页面上的显示顺序。
+有网址的填 `url`，点一下就跳过去；只有账号、没有网址的（比如 Discord 用户名）填 `value`，
+卡片上会显示成不可点的样子。`icon` 可以不写，不写就只显示文字。列表顺序就是页面上的显示顺序。
 
 一个人都没填的时候，工作人员页会显示一句"名单还没公开"，不会出现空卡片。
 
@@ -75,7 +80,7 @@ pinned: false
 `site.yaml` 里是站点名、域名、联系邮箱、社区群链接、招募岗位、备案号。
 
 - `org.tagline` 是首页大标题下面那句话；`org.intro` 是首页"关于我们"那一段，留空整段不显示。
-- `groups` 是社区群，每个群一条。`name` 是群名，`handle` 填群号（页面上会做成点击复制），Discord 这类没有群号的留空即可。
+- `groups` 是社区群，首页和加入我们页都按这份列表渲染。`platform` 决定卡片上的图标，可选 `qq` / `qqchannel` / `discord` / `telegram`；`name` 是群名；`handle` 填群号或频道号（页面上会做成点击复制），Discord 这类没有号的留空；`note` 是一句话说明。
 - `roles` 是招募岗位，示例是注释状态。要招人就把注释去掉、复制多份改内容；不招人保持注释，加入我们页会自动隐藏岗位区域。
 - `collaboration` 是友链与合作页底部那段合作说明。
 - `icp` 是备案号，没下来之前留空，页脚就不显示备案信息。

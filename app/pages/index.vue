@@ -102,7 +102,7 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
         <p class="text-xs font-bold tracking-[0.2em] text-brand-700 uppercase">Community</p>
         <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-ink-950 sm:text-3xl">社区群</h2>
 
-        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <SiteGroupCard v-for="group in groups" :key="group.url" :group="group" />
         </div>
       </div>

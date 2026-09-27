@@ -3,19 +3,9 @@ import type { Group } from '#content'
 
 const props = defineProps<{ group: Group }>()
 
-// 拉进来的平台图标是打包进去的那几个，配不到就退化成通用链接图标
-const platformIcons = ['qq', 'discord', 'telegram']
-const platformNames: Record<string, string> = {
-  qq: 'QQ 群',
-  discord: 'Discord',
-  telegram: 'Telegram',
-}
+const icon = computed(() => platformIcon(props.group.platform))
 
-const icon = computed(() =>
-  platformIcons.includes(props.group.platform) ? `simple-icons:${props.group.platform}` : 'lucide:link',
-)
-
-const platformName = computed(() => platformNames[props.group.platform] ?? '社群')
+const typeName = computed(() => platformLabel(props.group.platform))
 </script>
 
 <template>
@@ -29,11 +19,11 @@ const platformName = computed(() => platformNames[props.group.platform] ?? '社�
 
       <div class="min-w-0">
         <p v-if="group.name" class="text-xs font-bold tracking-widest text-ink-400 uppercase">
-          {{ platformName }}
+          {{ typeName }}
         </p>
         <!-- 群名还没填时拿平台名当标题，卡片不留空 -->
         <h3 class="truncate text-lg font-extrabold" :class="group.name ? 'text-ink-950' : 'text-ink-500'">
-          {{ group.name || platformName }}
+          {{ group.name || typeName }}
         </h3>
       </div>
     </div>

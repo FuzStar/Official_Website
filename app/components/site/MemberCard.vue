@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import type { Member } from '#content'
 
-defineProps<{ member: Member }>()
+const props = defineProps<{ member: Member }>()
+
+// 头像可能来自站外（按 QQ 号取的那种），加载失败就退回爪印，不留破图
+const avatarFailed = ref(false)
+const showAvatar = computed(() => Boolean(props.member.avatar) && !avatarFailed.value)
 </script>
 
 <template>
   <div class="sticker-card sticker-card-hover flex flex-col bg-cream-50 p-5">
     <div class="flex items-start gap-4">
       <img
-        v-if="member.avatar"
+        v-if="showAvatar"
         :src="member.avatar"
         :alt="member.name"
         class="size-14 shrink-0 rounded-2xl border-2 border-ink-900 object-cover"
+        @error="avatarFailed = true"
       />
       <span
         v-else
@@ -47,17 +52,27 @@ defineProps<{ member: Member }>()
         邮箱
       </a>
 
-      <a
-        v-for="link in member.links"
-        :key="link.url"
-        :href="link.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 rounded-full border-2 border-ink-900 bg-cream-50 px-3 py-1 text-xs font-bold text-ink-800 shadow-sticker-sm transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sticker"
-      >
-        <UIcon v-if="link.icon" :name="link.icon" class="size-3.5" />
-        {{ link.label }}
-      </a>
+      <template v-for="link in member.links" :key="link.url || link.label">
+        <a
+          v-if="link.url"
+          :href="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-full border-2 border-ink-900 bg-cream-50 px-3 py-1 text-xs font-bold text-ink-800 shadow-sticker-sm transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sticker"
+        >
+          <UIcon v-if="link.icon" :name="link.icon" class="size-3.5" />
+          {{ link.label }}
+        </a>
+
+        <!-- 只有账号、没有可跳转的地址，做成不可点的样子，跟链接区分开 -->
+        <span
+          v-else
+          class="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-ink-900/25 px-3 py-1 text-xs font-bold text-ink-600"
+        >
+          <UIcon v-if="link.icon" :name="link.icon" class="size-3.5" />
+          {{ link.value || link.label }}
+        </span>
+      </template>
     </div>
   </div>
 </template>
