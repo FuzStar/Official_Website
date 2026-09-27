@@ -39,7 +39,7 @@ const withAvatar = (members: MemberEntry[]) =>
     avatar: member.avatar || (member.qq ? `https://q1.qlogo.cn/g?b=qq&nk=${member.qq}&s=140` : ''),
   }))
 
-// 岗位的职责与要求、招募说明按 markdown 写，构建期渲染成 HTML 交给页面。
+// 岗位的职责与要求、招募说明、合作说明按 markdown 写，构建期渲染成 HTML 交给页面。
 // 内容都在仓库里，没有外部输入，页面直接 v-html 是安全的。
 const renderRich = (value: unknown): string =>
   typeof value === 'string' && value.trim() ? md.render(value).trim() : ''
@@ -52,6 +52,7 @@ function prepareSite(raw: Record<string, unknown>) {
   return {
     ...raw,
     recruitNote: renderRich(raw.recruitNote),
+    collaboration: renderRich(raw.collaboration),
     roles: roles.map((role) => ({
       ...role,
       duty: renderRich(role.duty),

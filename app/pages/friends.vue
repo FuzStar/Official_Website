@@ -26,12 +26,11 @@ useSiteSeo({ title: '友链与合作' })
       <div class="sticker-card mt-12 bg-cream-50 p-8">
         <h2 class="text-xl font-extrabold text-ink-950">合作</h2>
 
-        <p
+        <div
           v-if="site.collaboration"
-          class="mt-3 leading-loose whitespace-pre-line text-ink-600"
-        >
-          {{ site.collaboration }}
-        </p>
+          class="rich-text rich-text-lg mt-4"
+          v-html="site.collaboration"
+        />
 
         <a v-if="site.email" :href="`mailto:${site.email}`" class="btn btn-secondary mt-6">
           <UIcon name="lucide:mail" class="size-4" />

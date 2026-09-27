@@ -311,6 +311,13 @@
     text-decoration: underline;
     text-underline-offset: 3px;
   }
+
+  /* 同样是 markdown 渲染的内容，但这段是页面正文、不是卡内小字，字号给回正文大小 */
+  .rich-text-lg {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--color-ink-700);
+  }
 }
 
 /* 切页动画：只做很短的淡入上移，减少动态效果时直接关掉 */

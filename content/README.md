@@ -87,7 +87,7 @@ pinned: false
 
 ### 哪些字段能写 markdown
 
-`joinLead`、`recruitNote`、`roles[].duty`、`roles[].requirement` 这四个支持三种写法：
+`recruitNote`、`roles[].duty`、`roles[].requirement`、`collaboration` 这四个支持三种写法：
 
 ```
 - 列表项        页面上的方点列表
@@ -107,5 +107,5 @@ pinned: false
 
 其余字段（`org.*`、`groups[].*`、`roles[].title`、`slots`）是纯文本，写什么显示什么——
 敲进去的星号、井号会原样出现在页面上，不会被当成语法。
-- `collaboration` 是友链与合作页底部那段合作说明。
-- `icp` 是备案号，没下来之前留空，页脚就不显示备案信息。
+
+`icp` 是备案号，没下来之前留空，页脚就不显示备案信息。
