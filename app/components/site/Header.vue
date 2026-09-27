@@ -1,13 +1,4 @@
 <script setup lang="ts">
-const nav = [
-  { label: '首页', to: '/' },
-  { label: '关于我们', to: '/about' },
-  { label: '公告', to: '/news' },
-  { label: '加入我们', to: '/join' },
-  { label: '工作人员', to: '/team' },
-  { label: '友链与合作', to: '/friends' },
-]
-
 const route = useRoute()
 const menuOpen = ref(false)
 
@@ -25,7 +16,7 @@ watch(() => route.fullPath, () => {
 
       <nav class="ml-auto hidden items-center gap-1 md:flex">
         <NuxtLink
-          v-for="item in nav"
+          v-for="item in siteNav"
           :key="item.to"
           :to="item.to"
           class="rounded-full px-3.5 py-2 text-sm font-semibold text-ink-600 transition-colors hover:bg-brand-100 hover:text-ink-900"
@@ -65,7 +56,7 @@ watch(() => route.fullPath, () => {
         class="border-t-2 border-ink-900/10 bg-cream-50 px-5 py-3 md:hidden"
       >
         <NuxtLink
-          v-for="item in nav"
+          v-for="item in siteNav"
           :key="item.to"
           :to="item.to"
           class="block rounded-xl px-3 py-2.5 text-base font-semibold text-ink-700"

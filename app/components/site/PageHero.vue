@@ -26,8 +26,24 @@ defineProps<{
         {{ eyebrow }}
       </p>
 
-      <h1 class="text-3xl font-extrabold tracking-tight text-ink-950 sm:text-4xl">
+      <h1 class="relative inline-block text-3xl font-extrabold tracking-tight text-ink-950 sm:text-4xl">
         {{ title }}
+        <!-- 随手划的一道下划线。宽度跟着标题走，标题短线就短 -->
+        <svg
+          class="absolute -bottom-2 left-0 h-2.5 w-full text-brand-400"
+          viewBox="0 0 200 10"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M2 7.4C28 3.6 60 2.2 98 2.6s74 1.8 100 5.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3.4"
+            stroke-linecap="round"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
       </h1>
 
       <p v-if="description" class="mt-4 max-w-2xl text-base leading-relaxed text-ink-600">

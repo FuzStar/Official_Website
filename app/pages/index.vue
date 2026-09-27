@@ -10,14 +10,9 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
 
 <template>
   <div>
-    <section class="relative overflow-hidden">
-      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div class="absolute -top-16 -left-24 size-80 rounded-full bg-brand-200/40 blur-3xl" />
-        <div class="absolute -top-10 right-0 size-96 rounded-full bg-blush-200/50 blur-3xl" />
-      </div>
-
+    <section class="overflow-hidden">
       <div
-        class="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pt-16 pb-20 sm:px-8 sm:pt-24 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr]"
+        class="mx-auto grid max-w-6xl items-center gap-14 px-5 pt-16 pb-20 sm:px-8 sm:pt-24 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr]"
       >
         <div>
           <p
@@ -32,7 +27,14 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
             class="mt-6 text-5xl leading-[1.06] font-extrabold tracking-tight text-ink-950 sm:text-6xl"
           >
             {{ site.org.nameZh }}
-            <span class="mt-1 block text-brand-600">{{ site.org.name }}</span>
+            <span class="relative mt-1 block w-fit text-brand-600">
+              <!-- 垫在英文名后面的高亮块，左右故意划出头一点，像马克笔 -->
+              <span
+                class="absolute inset-x-[-0.25em] top-[0.12em] bottom-[0.1em] -rotate-1 rounded-[0.12em] bg-brand-200"
+                aria-hidden="true"
+              />
+              <span class="relative">{{ site.org.name }}</span>
+            </span>
           </h1>
 
           <p v-if="site.org.tagline" class="mt-6 max-w-xl text-lg leading-relaxed text-ink-600">
@@ -52,7 +54,17 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
         </div>
 
         <div class="relative mx-auto w-full max-w-xs sm:max-w-sm">
-          <div class="sticker-card rotate-2 bg-white p-5">
+          <!-- 主卡后面垫两张纸片，各转一点角度，看成摞起来的贴纸 -->
+          <div
+            class="absolute inset-0 rotate-[-4deg] rounded-[var(--radius-sticker)] border-2 border-ink-900/50 bg-blush-200"
+            aria-hidden="true"
+          />
+          <div
+            class="absolute inset-0 rotate-[-1deg] rounded-[var(--radius-sticker)] border-2 border-ink-900/50 bg-brand-200"
+            aria-hidden="true"
+          />
+
+          <div class="sticker-card relative rotate-2 bg-white p-5">
             <img src="/brand/logo.png" :alt="`${site.org.nameZh} ${site.org.name}`" class="w-full" />
           </div>
           <SiteStarMark class="absolute -top-6 -left-4 size-12 text-brand-400" />

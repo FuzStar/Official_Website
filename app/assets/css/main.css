@@ -128,7 +128,7 @@
   }
 
   .sticker-card-hover:hover {
-    transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px) rotate(-0.6deg);
     box-shadow: var(--shadow-sticker-lg);
   }
 

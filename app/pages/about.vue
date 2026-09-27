@@ -40,7 +40,10 @@ useSiteSeo({ title: '关于我们', description: about.lead })
           </span>
         </NuxtLink>
 
-        <NuxtLink to="/friends" class="sticker-card group flex flex-col bg-blush-100 p-6">
+        <NuxtLink
+          to="/friends"
+          class="sticker-card sticker-card-hover group flex flex-col bg-blush-100 p-6"
+        >
           <h3 class="text-lg font-extrabold text-ink-950">友链与合作</h3>
           <p class="mt-1.5 text-sm leading-relaxed text-ink-700">
             换友链、办活动、互推内容都可以谈。

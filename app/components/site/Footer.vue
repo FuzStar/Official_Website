@@ -1,14 +1,6 @@
 <script setup lang="ts">
 import { site } from '#content'
 
-const nav = [
-  { label: '首页', to: '/' },
-  { label: '公告', to: '/news' },
-  { label: '加入我们', to: '/join' },
-  { label: '工作人员', to: '/team' },
-  { label: '友链与合作', to: '/friends' },
-]
-
 const year = new Date().getFullYear()
 </script>
 
@@ -26,7 +18,7 @@ const year = new Date().getFullYear()
         <div>
           <h2 class="text-xs font-bold tracking-widest text-ink-400 uppercase">站内</h2>
           <ul class="mt-4 space-y-2.5">
-            <li v-for="item in nav" :key="item.to">
+            <li v-for="item in siteNav" :key="item.to">
               <NuxtLink
                 :to="item.to"
                 class="text-sm font-medium text-ink-700 transition-colors hover:text-brand-700"
