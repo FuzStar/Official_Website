@@ -36,7 +36,7 @@ useSiteSeo({ title: '加入我们', description: site.org.tagline })
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8">
         <h2 class="text-2xl font-extrabold tracking-tight text-ink-950 sm:text-3xl">工作团队</h2>
 
-        <div v-if="roles.length" class="mt-8 grid gap-5 sm:grid-cols-2">
+        <div v-if="roles.length" class="mt-8 grid items-start gap-5 sm:grid-cols-2">
           <div
             v-for="(role, index) in roles"
             :key="role.title || index"
@@ -57,11 +57,11 @@ useSiteSeo({ title: '加入我们', description: site.org.tagline })
             <dl class="mt-4 space-y-3.5 text-sm">
               <div v-if="role.duty">
                 <dt class="font-bold text-ink-800">负责什么</dt>
-                <dd class="mt-1 leading-relaxed text-ink-600">{{ role.duty }}</dd>
+                <dd class="mt-1 leading-relaxed whitespace-pre-line text-ink-600">{{ role.duty }}</dd>
               </div>
               <div v-if="role.requirement">
                 <dt class="font-bold text-ink-800">有什么要求</dt>
-                <dd class="mt-1 leading-relaxed text-ink-600">{{ role.requirement }}</dd>
+                <dd class="mt-1 leading-relaxed whitespace-pre-line text-ink-600">{{ role.requirement }}</dd>
               </div>
             </dl>
           </div>
