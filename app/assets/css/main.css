@@ -250,6 +250,67 @@
     background: none;
     color: inherit;
   }
+
+  /* 卡片里的富文本（岗位职责与要求）。字号比公告正文小一档，
+     列表点做成小方块而不是默认圆点，跟贴纸描边的调子保持一致。 */
+  .rich-text {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-ink-600);
+  }
+
+  .rich-text > * + * {
+    margin-top: 0.9em;
+  }
+
+  .rich-text h4 {
+    margin-top: 1.6em;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-800);
+  }
+
+  /* h4 打头时不留上边距，否则卡片顶上会空一块 */
+  .rich-text > :first-child {
+    margin-top: 0;
+  }
+
+  .rich-text ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .rich-text li {
+    position: relative;
+    padding-left: 1.05em;
+  }
+
+  .rich-text li + li {
+    margin-top: 0.4em;
+  }
+
+  .rich-text li::before {
+    content: "";
+    position: absolute;
+    top: 0.62em;
+    left: 0;
+    width: 0.4em;
+    height: 0.4em;
+    border-radius: 1px;
+    background-color: var(--color-brand-400);
+  }
+
+  .rich-text strong {
+    font-weight: 700;
+    color: var(--color-ink-800);
+  }
+
+  .rich-text a {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 /* 切页动画：只做很短的淡入上移，减少动态效果时直接关掉 */

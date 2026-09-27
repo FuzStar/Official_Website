@@ -39,6 +39,27 @@ const withAvatar = (members: MemberEntry[]) =>
     avatar: member.avatar || (member.qq ? `https://q1.qlogo.cn/g?b=qq&nk=${member.qq}&s=140` : ''),
   }))
 
+// 岗位的职责与要求、招募说明按 markdown 写，构建期渲染成 HTML 交给页面。
+// 内容都在仓库里，没有外部输入，页面直接 v-html 是安全的。
+const renderRich = (value: unknown): string =>
+  typeof value === 'string' && value.trim() ? md.render(value).trim() : ''
+
+// 只有这几个长文字字段走 markdown，标题、人数这类短字段保持原样，
+// 免得管理组写岗位名时无意间敲进个星号就被当成强调语法吃掉。
+function prepareSite(raw: Record<string, unknown>) {
+  const roles = Array.isArray(raw.roles) ? (raw.roles as Record<string, unknown>[]) : []
+
+  return {
+    ...raw,
+    recruitNote: renderRich(raw.recruitNote),
+    roles: roles.map((role) => ({
+      ...role,
+      duty: renderRich(role.duty),
+      requirement: renderRich(role.requirement),
+    })),
+  }
+}
+
 export default defineNuxtModule({
   meta: { name: 'content-layer' },
 
@@ -46,7 +67,9 @@ export default defineNuxtModule({
     const contentDir = resolve(nuxt.options.rootDir, 'content')
     const noticeDir = join(contentDir, 'notice')
 
-    const readYaml = (file: string) => {
+    // js-yaml 的 load 返回 unknown，这里按调用处声明的形状交出去。
+    // 文件缺失、或整份只有注释时给 null，由调用处决定空值怎么办。
+    const readYaml = <T>(file: string): T | null => {
       const path = join(contentDir, file)
       if (!existsSync(path)) return null
 
@@ -58,7 +81,7 @@ export default defineNuxtModule({
         .some((line) => line.trim() !== '' && !line.trimStart().startsWith('#'))
 
       if (!hasContent) return null
-      return parseYaml(raw) ?? null
+      return (parseYaml(raw) ?? null) as T | null
     }
 
     const readNotices = () => {
@@ -91,9 +114,9 @@ export default defineNuxtModule({
       filename: 'content/data.mjs',
       write: true,
       getContents: () => {
-        const site = readYaml('site.yaml') ?? {}
-        const members = withAvatar(readYaml('members.yaml') ?? [])
-        const friends = readYaml('friends.yaml') ?? []
+        const site = prepareSite(readYaml<Record<string, unknown>>('site.yaml') ?? {})
+        const members = withAvatar(readYaml<MemberEntry[]>('members.yaml') ?? [])
+        const friends = readYaml<Record<string, unknown>[]>('friends.yaml') ?? []
         const notices = readNotices()
 
         return [

@@ -13,6 +13,8 @@ declare module '#content' {
   export interface Role {
     title: string
     slots: string
+    // duty 与 requirement 在 content/site.yaml 里按 markdown 写，
+    // 构建期已渲染成 HTML，页面上用 v-html 输出
     duty: string
     requirement: string
   }
@@ -31,6 +33,9 @@ declare module '#content' {
     icpUrl: string
     groups: Group[]
     roles: Role[]
+    // "加入我们"页开头那句，讲清这页有两条路：进社群、进工作团队
+    joinLead: string
+    // 招募说明与通用要求，markdown 渲染后的 HTML
     recruitNote: string
     collaboration: string
   }
