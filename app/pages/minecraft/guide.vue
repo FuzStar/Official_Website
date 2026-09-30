@@ -8,6 +8,7 @@ const sections = minecraftGuide.sections ?? []
 const sectionIcons: Record<string, string> = {
   residence: 'lucide:shield',
   teleport: 'lucide:compass',
+  chat: 'lucide:messages-square',
   economy: 'lucide:coins',
   rewards: 'lucide:sparkles',
 }
