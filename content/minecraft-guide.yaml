@@ -1,0 +1,97 @@
+# 游戏服教程页（/minecraft/guide）。整块（section）留空就等于关掉它，
+# 页面上不会留空白区，所以没想好的块先空着，想好了再填。
+#
+# id 是页面锚点，别的页面能直接用 /minecraft/guide#residence 跳过来，起好之后别再改。
+# lead 是这一块开头那句话，纯文本。
+# groups 用来把指令分组，可以省掉，省掉就直接铺条目。
+# entries 一条一个指令：
+#   cmd  指令原文，页面上等宽显示并带一个复制按钮，留着空就是一条没有指令的提示
+#   desc 说明文字，支持行内 markdown（**加粗**、`代码`）。这里是行内渲染，
+#        写列表或标题会原样显示出来，别写。
+# note 是这一块末尾的补充，按 markdown 整段渲染，能写列表、能分行。
+
+lead: 服务器装的东西不少，指令不用背——照着下面敲就行，每条都能点一下直接复制。
+
+sections:
+  - id: residence
+    title: 领地与财产保护
+    lead: 自己盖的东西圈起来才有保护。没圈的地方，别人能动手。
+    groups:
+      - title: 圈一块自己的地
+        entries:
+          - cmd: /res create 名字
+            desc: 拿木锄左键点一个角、右键点对角，圈出范围后敲这条，这块地就归你了。
+          - cmd: /res tp 名字
+            desc: 不管人在哪，直接传回自己的领地。
+          - cmd: /res remove 名字
+            desc: 撤掉保护。地里的东西不会没，只是别人又能动了。
+      - title: 让朋友能进来
+        entries:
+          - cmd: /res pset 领地名 玩家名 move true
+            desc: 让他能进出，但什么都不能改。
+          - cmd: /res pset 领地名 玩家名 container true
+            desc: 让他能开箱子、按门、按按钮。
+          - cmd: /res pset 领地名 玩家名 build true
+            desc: 让他能盖也能拆。想清楚再给。
+          - cmd: /res pset 领地名 玩家名 remove
+            desc: 收回上面给的全部权限。
+      - title: 东西被人动了
+        entries:
+          - cmd: /co i
+            desc: 打开检查模式，之后对着方块点一下，就能看到它最近被谁动过。再敲一次关掉。
+          - cmd: /co l 玩家名
+            desc: 查某个人最近都动过什么。
+    note: |-
+      领地指令还有一大堆，`/res help` 能列出全部。想要某个效果又不知道敲哪条，在群里问一声。
+      查记录那两条要求权限，敲了提示没权限的话，找管理开。
+
+  - id: teleport
+    title: 传送与快捷菜单
+    lead: 走远路不用腿着去，家、出生点、别人身边都能直接传。
+    groups:
+      - title: 家和出生点
+        entries:
+          - cmd: /sethome 名字
+            desc: 把脚下这个位置存成家。名字自己起，不写就用默认那个。
+          - cmd: /home 名字
+            desc: 传送回家。
+          - cmd: /delhome 名字
+            desc: 删掉不想要的家。
+          - cmd: /spawn
+            desc: 回出生点。
+      - title: 去别的地方
+        entries:
+          - cmd: /tpa 玩家名
+            desc: 请求传到对方身边，他同意了才过得去。
+          - cmd: /tpaccept
+            desc: 同意别人的传送请求。
+          - cmd: /warp
+            desc: 看服务器设了哪些公共地点，选一个过去。
+          - cmd: /back
+            desc: 回到上一次死掉、或者传送之前的位置。
+      - title: 记不住就敲菜单
+        entries:
+          - cmd: /menu
+            desc: 弹出功能菜单，上面这些大多能在里面点到，不用记指令。
+
+  - id: economy
+    title: 经济
+    lead: 服务器里有自己的钱，玩家之间能互相转账。
+    groups:
+      - title: 余额与转账
+        entries:
+          - cmd: /money
+            desc: 看自己有多少钱。
+          - cmd: /money 玩家名
+            desc: 看别人有多少钱。
+          - cmd: /pay 玩家名 金额
+            desc: 转钱给对方。
+
+  - id: rewards
+    title: 在线奖励与时长
+    lead: 挂着也有点回报，顺便看看自己在这服待了多久。
+    groups:
+      - title: 在线时长
+        entries:
+          - cmd: /playtime
+            desc: 看自己累计玩了多久。

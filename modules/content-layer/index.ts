@@ -43,6 +43,11 @@ const withAvatar = (members: MemberEntry[]) =>
 const renderRich = (value: unknown): string =>
   typeof value === 'string' && value.trim() ? md.render(value).trim() : ''
 
+// 单行说明用行内渲染：能写 **加粗** 和 `代码`，但不会像 renderRich 那样包一层 <p>，
+// 可以直接放进 <li> 或标题旁边。
+const renderInline = (value: unknown): string =>
+  typeof value === 'string' && value.trim() ? md.renderInline(value).trim() : ''
+
 interface AboutSectionEntry {
   title?: unknown
   body?: unknown
@@ -139,6 +144,48 @@ function prepareMinecraft(raw: Record<string, unknown> | null) {
   }
 }
 
+interface GuideEntry {
+  cmd?: unknown
+  desc?: unknown
+}
+
+interface GuideGroup {
+  title?: unknown
+  entries?: GuideEntry[]
+}
+
+interface GuideSection {
+  id?: unknown
+  title?: unknown
+  lead?: unknown
+  groups?: GuideGroup[]
+  note?: unknown
+}
+
+// 游戏服教程页。一块一节，节里再分几组指令。
+// 节、组、条目都由内容决定数量，页面只管按顺序铺开，加一块不用改代码。
+function prepareGuide(raw: Record<string, unknown> | null) {
+  const sections = Array.isArray(raw?.sections) ? (raw.sections as GuideSection[]) : []
+
+  return {
+    lead: asText(raw?.lead),
+    sections: sections.map((section) => ({
+      id: asText(section?.id),
+      title: asText(section?.title),
+      lead: asText(section?.lead),
+      groups: (Array.isArray(section?.groups) ? section.groups : []).map((group) => ({
+        title: asText(group?.title),
+        entries: (Array.isArray(group?.entries) ? group.entries : []).map((entry) => ({
+          cmd: asText(entry?.cmd),
+          // 说明是单行，走行内渲染
+          desc: renderInline(entry?.desc),
+        })),
+      })),
+      note: renderRich(section?.note),
+    })),
+  }
+}
+
 export default defineNuxtModule({
   meta: { name: 'content-layer' },
 
@@ -199,6 +246,7 @@ export default defineNuxtModule({
         const notices = readNotices()
         const eggs = prepareEggs(readYaml<Record<string, unknown>>('eggs.yaml'))
         const minecraft = prepareMinecraft(readYaml<Record<string, unknown>>('minecraft.yaml'))
+        const minecraftGuide = prepareGuide(readYaml<Record<string, unknown>>('minecraft-guide.yaml'))
 
         return [
           `export const site = ${JSON.stringify(site, null, 2)}`,
@@ -208,6 +256,7 @@ export default defineNuxtModule({
           `export const notices = ${JSON.stringify(notices, null, 2)}`,
           `export const eggs = ${JSON.stringify(eggs, null, 2)}`,
           `export const minecraft = ${JSON.stringify(minecraft, null, 2)}`,
+          `export const minecraftGuide = ${JSON.stringify(minecraftGuide, null, 2)}`,
           '',
         ].join('\n')
       },

@@ -93,6 +93,31 @@ useSiteSeo({ title: minecraft.name || '游戏服', description: minecraft.lead }
       </div>
     </section>
 
+    <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      <div
+        class="sticker-card sticker-card-hover flex flex-col items-start gap-5 bg-cream-50 p-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="flex items-start gap-4">
+          <span
+            class="grid size-11 shrink-0 place-items-center rounded-2xl border-2 border-ink-900 bg-brand-200"
+          >
+            <UIcon name="lucide:book-open" class="size-5 text-ink-900" />
+          </span>
+          <div>
+            <h2 class="text-lg font-extrabold text-ink-950">服务器教程</h2>
+            <p class="mt-1 max-w-xl text-sm leading-relaxed text-ink-600">
+              领地、传送、经济、在线奖励这些功能都有哪些指令，整理在一页里了。
+            </p>
+          </div>
+        </div>
+
+        <NuxtLink to="/minecraft/guide" class="btn btn-secondary shrink-0">
+          看教程
+          <UIcon name="lucide:arrow-right" class="size-4" />
+        </NuxtLink>
+      </div>
+    </section>
+
     <section v-if="minecraft.about" class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
       <h2 class="text-2xl font-extrabold tracking-tight text-ink-950 sm:text-3xl">这服在玩什么</h2>
       <div class="rich-text rich-text-lg mt-8" v-html="minecraft.about" />

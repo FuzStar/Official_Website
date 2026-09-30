@@ -105,6 +105,33 @@ declare module '#content' {
     joinNote: string
   }
 
+  export interface GuideEntry {
+    // 指令原文。空字符串表示这条只有说明、没有指令
+    cmd: string
+    // 在 content/minecraft-guide.yaml 里按行内 markdown 写，构建期渲染成 HTML 片段
+    desc: string
+  }
+
+  export interface GuideGroup {
+    title: string
+    entries: GuideEntry[]
+  }
+
+  export interface GuideSection {
+    // 页面锚点，别的页面可以 /minecraft/guide#id 直接跳过来
+    id: string
+    title: string
+    lead: string
+    groups: GuideGroup[]
+    // 这一块末尾的补充说明，markdown 整段渲染后的 HTML
+    note: string
+  }
+
+  export interface MinecraftGuideContent {
+    lead: string
+    sections: GuideSection[]
+  }
+
   export interface Notice {
     slug: string
     title: string
@@ -135,4 +162,5 @@ declare module '#content' {
   export const notices: Notice[]
   export const eggs: EggsContent
   export const minecraft: MinecraftContent
+  export const minecraftGuide: MinecraftGuideContent
 }

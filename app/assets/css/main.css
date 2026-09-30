@@ -390,6 +390,73 @@
     line-height: 1.85;
     color: var(--color-ink-700);
   }
+
+  /* 教程页顶部那排跳转按钮。跟 btn 一个路子，但小一号、不带大阴影 */
+  .guide-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    border: 2px solid var(--color-ink-900);
+    border-radius: 999px;
+    background-color: var(--color-cream-50);
+    box-shadow: var(--shadow-sticker-sm);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-ink-800);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .guide-tab:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-sticker);
+  }
+
+  /* 一条指令。指令本身和说明分两行：指令要能一眼扫到、随时复制，
+     说明跟在下面，读完就往下走 */
+  .guide-entry {
+    padding: 0.9rem 1.1rem;
+    border: 2px solid var(--color-ink-900);
+    border-radius: 1rem;
+    background-color: var(--color-cream-50);
+  }
+
+  .guide-cmd {
+    padding: 0.2em 0.55em;
+    border-radius: 0.45rem;
+    background-color: var(--color-brand-100);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-ink-900);
+    /* 留给参数的位置可能很长，窄屏上宁可断开也别把卡片撑破 */
+    overflow-wrap: anywhere;
+  }
+
+  .guide-desc {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-ink-600);
+  }
+
+  .guide-desc code {
+    padding: 0.15em 0.4em;
+    border-radius: 0.35rem;
+    background-color: var(--color-cream-200);
+    font-size: 0.9em;
+  }
+
+  .guide-desc strong {
+    font-weight: 700;
+    color: var(--color-ink-800);
+  }
+
+  /* 块尾的补充说明，做成一条竖线引注，跟着哪块都不打架 */
+  .guide-note {
+    padding-left: 1em;
+    border-left: 3px solid var(--color-brand-300);
+  }
 }
 
 /* 手风琴面板的开关：只做很短的淡出。高度动画要算 scrollHeight，为这点观感不值当 */
@@ -481,6 +548,14 @@ html.paw-cursor [role="button"] {
 
   .sticker-card {
     transition: none;
+  }
+
+  .guide-tab {
+    transition: none;
+  }
+
+  .guide-tab:hover {
+    transform: none;
   }
 
   .sticker-card-hover:hover {
