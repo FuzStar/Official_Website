@@ -75,8 +75,8 @@ function prepareSite(raw: Record<string, unknown>) {
   }
 }
 
-// 彩蛋文案。每条的 text 留空就等于关掉它，所以空值一律收敛成空串，
-// 页面只判断字符串有没有内容，不判断字段在不在。
+// 短字段的统一收敛：不是字符串就给空串，留空即等于关掉这一块。
+// 页面只判断有没有内容，不判断字段在不在。
 const asText = (value: unknown): string => (typeof value === 'string' ? value.trim() : '')
 
 function prepareEggs(raw: Record<string, unknown> | null) {
@@ -91,6 +91,51 @@ function prepareEggs(raw: Record<string, unknown> | null) {
     lost: asText((raw?.lost as Record<string, unknown>)?.text),
     console: asText(raw?.console),
     comment: asText(raw?.comment),
+  }
+}
+
+interface MinecraftAddressEntry {
+  platform?: unknown
+  label?: unknown
+  host?: unknown
+  port?: unknown
+  note?: unknown
+}
+
+interface MinecraftAccessEntry {
+  title?: unknown
+  body?: unknown
+}
+
+// MC 服务器页。地址、端口这类短字段保持原样，说明文字走 markdown。
+// 地址和登录方式的条数由内容决定，页面只管按顺序铺开，加一条不用改代码。
+function prepareMinecraft(raw: Record<string, unknown> | null) {
+  const status = (raw?.status ?? {}) as Record<string, unknown>
+  const addresses = Array.isArray(raw?.addresses)
+    ? (raw.addresses as MinecraftAddressEntry[])
+    : []
+  const access = Array.isArray(raw?.access) ? (raw.access as MinecraftAccessEntry[]) : []
+
+  return {
+    name: asText(raw?.name),
+    lead: asText(raw?.lead),
+    status: { java: asText(status.java) },
+    addresses: addresses.map((item) => ({
+      platform: asText(item?.platform),
+      label: asText(item?.label),
+      host: asText(item?.host),
+      // 端口在 yaml 里可能被读成字符串也可能被读成数字，统一收敛成字符串
+      port: item?.port === undefined || item?.port === null ? '' : String(item.port),
+      note: asText(item?.note),
+    })),
+    access: access.map((item) => ({
+      title: asText(item?.title),
+      body: renderRich(item?.body),
+    })),
+    about: renderRich(raw?.about),
+    rules: renderRich(raw?.rules),
+    penalty: renderRich(raw?.penalty),
+    joinNote: asText(raw?.joinNote),
   }
 }
 
@@ -153,6 +198,7 @@ export default defineNuxtModule({
         const friends = readYaml<Record<string, unknown>[]>('friends.yaml') ?? []
         const notices = readNotices()
         const eggs = prepareEggs(readYaml<Record<string, unknown>>('eggs.yaml'))
+        const minecraft = prepareMinecraft(readYaml<Record<string, unknown>>('minecraft.yaml'))
 
         return [
           `export const site = ${JSON.stringify(site, null, 2)}`,
@@ -161,6 +207,7 @@ export default defineNuxtModule({
           `export const friends = ${JSON.stringify(friends, null, 2)}`,
           `export const notices = ${JSON.stringify(notices, null, 2)}`,
           `export const eggs = ${JSON.stringify(eggs, null, 2)}`,
+          `export const minecraft = ${JSON.stringify(minecraft, null, 2)}`,
           '',
         ].join('\n')
       },

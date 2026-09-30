@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { notices, site } from '#content'
+import { minecraft, notices, site } from '#content'
 
 const latestNotices = notices.slice(0, 3)
 const groups = site.groups ?? []
@@ -129,7 +129,22 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
 
     <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8">
       <div
-        class="sticker-card flex flex-col items-start gap-6 bg-brand-100 p-8 sm:flex-row sm:items-center sm:justify-between"
+        v-if="minecraft.name"
+        class="sticker-card flex flex-col items-start gap-6 bg-cream-200 p-8 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div>
+          <h2 class="text-xl font-extrabold text-ink-950 sm:text-2xl">{{ minecraft.name }}</h2>
+          <p v-if="minecraft.lead" class="mt-2 max-w-xl text-ink-700">{{ minecraft.lead }}</p>
+        </div>
+
+        <NuxtLink to="/minecraft" class="btn btn-secondary shrink-0">
+          进服看看
+          <UIcon name="lucide:arrow-right" class="size-4" />
+        </NuxtLink>
+      </div>
+
+      <div
+        class="sticker-card mt-6 flex flex-col items-start gap-6 bg-brand-100 p-8 sm:flex-row sm:items-center sm:justify-between"
       >
         <div>
           <h2 class="text-xl font-extrabold text-ink-950 sm:text-2xl">友链与合作</h2>

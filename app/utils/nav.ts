@@ -5,6 +5,7 @@ export const siteNav = [
   { label: '关于我们', to: '/about' },
   { label: '公告', to: '/news' },
   { label: '加入我们', to: '/join' },
+  { label: '游戏服', to: '/minecraft' },
   { label: '工作人员', to: '/team' },
   { label: '友链与合作', to: '/friends' },
 ]

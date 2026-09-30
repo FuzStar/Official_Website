@@ -74,6 +74,37 @@ declare module '#content' {
     logo: string
   }
 
+  export interface MinecraftAddress {
+    // java / bedrock，决定卡片上挂哪个图标
+    platform: string
+    label: string
+    host: string
+    // 端口留空表示走 SRV，玩家不用填
+    port: string
+    note: string
+  }
+
+  export interface MinecraftAccess {
+    title: string
+    // 在 content/minecraft.yaml 里按 markdown 写，构建期已渲染成 HTML
+    body: string
+  }
+
+  export interface MinecraftContent {
+    name: string
+    lead: string
+    // 玩家实际要连的地址，留空则页面不显示实时状态徽章
+    status: { java: string }
+    addresses: MinecraftAddress[]
+    access: MinecraftAccess[]
+    // about / rules / penalty 在 content/minecraft.yaml 里按 markdown 写，
+    // 构建期已渲染成 HTML
+    about: string
+    rules: string
+    penalty: string
+    joinNote: string
+  }
+
   export interface Notice {
     slug: string
     title: string
@@ -103,4 +134,5 @@ declare module '#content' {
   export const friends: Friend[]
   export const notices: Notice[]
   export const eggs: EggsContent
+  export const minecraft: MinecraftContent
 }

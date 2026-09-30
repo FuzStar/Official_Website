@@ -281,9 +281,20 @@
     list-style: none;
   }
 
+  /* 要带序号的列表走 ol，标记交给浏览器数字，把 ul 那套小方块让开，
+     否则每个条目上会同时压出数字和方块两个标记 */
+  .rich-text ol {
+    padding-left: 1.5em;
+    list-style: decimal;
+  }
+
   .rich-text li {
     position: relative;
     padding-left: 1.05em;
+  }
+
+  .rich-text ol > li {
+    padding-left: 0;
   }
 
   .rich-text li + li {
@@ -301,6 +312,10 @@
     background-color: var(--color-brand-400);
   }
 
+  .rich-text ol > li::before {
+    content: none;
+  }
+
   .rich-text strong {
     font-weight: 700;
     color: var(--color-ink-800);
@@ -310,6 +325,63 @@
     color: var(--color-brand-700);
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+
+  .rich-text code {
+    padding: 0.15em 0.4em;
+    border-radius: 0.35rem;
+    background-color: var(--color-cream-200);
+    font-size: 0.9em;
+  }
+
+  /* 处罚对照表。跟贴纸卡一个路子：深棕描边、奶油底，表头压深一档 */
+  .rich-text table {
+    width: 100%;
+    border: 2px solid var(--color-ink-900);
+    border-radius: 0.9rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--color-cream-50);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  .rich-text th,
+  .rich-text td {
+    padding: 0.7em 1em;
+    vertical-align: top;
+  }
+
+  .rich-text th {
+    background-color: var(--color-brand-100);
+    font-weight: 700;
+    color: var(--color-ink-900);
+  }
+
+  .rich-text td {
+    border-top: 1px solid var(--color-ink-200);
+    color: var(--color-ink-700);
+  }
+
+  .rich-text tbody tr:nth-child(even) td {
+    background-color: var(--color-cream-100);
+  }
+
+  /* 单元格背景是方的，会盖掉整张表的圆角，头尾四个角单独修一下 */
+  .rich-text th:first-child {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .rich-text th:last-child {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .rich-text tr:last-child td:first-child {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .rich-text tr:last-child td:last-child {
+    border-bottom-right-radius: 0.75rem;
   }
 
   /* 同样是 markdown 渲染的内容，但这段是页面正文、不是卡内小字，字号给回正文大小 */
