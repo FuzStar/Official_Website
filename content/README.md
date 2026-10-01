@@ -133,31 +133,50 @@ pinned: false
 
 - `org.badge` 是首页标题上方那个小标签；`org.tagline` 是首页大标题下面那句话；`org.intro` 是首页"关于我们"那一段，留空整段不显示。
 - `groups` 是社区群，首页和加入我们页都按这份列表渲染。`platform` 决定卡片上的图标，可选 `qq` / `qqchannel` / `discord` / `telegram`；`name` 是群名；`handle` 填群号或频道号（页面上会做成点击复制），Discord 这类没有号的留空；`note` 是一句话说明。
-- `roles` 是招募岗位，加入我们页按这个列表渲染。加岗位就复制一段改；`slots` 留空则不显示卡片右上角的人数徽章。一个都不招就把整段 `roles` 删掉或注释掉，页面会自动隐藏岗位区域。
+- `roles` 是招募岗位，加入我们页按这个列表渲染。它是**两级**的：一个部门下面挂若干下挂部门。
+
+```
+roles:
+  - title: 开发部          # 部门名，纯文本
+    slots: 招 4 人         # 人数徽章，留空不显示
+    note: ""               # 部门名旁边的小字说明，纯文本
+    duty: 负责什么          # markdown
+    requirement: 有什么要求  # markdown
+    groups:                # 下挂部门
+      - title: 后端开发
+        slots: ""
+        note: ""
+        duty: ""
+        requirement: 要求原文
+```
+
+  加部门就复制一整段改，加下挂部门就复制一份 `groups` 里的那段。下挂部门的字段和部门完全一样，用不到的都留空，那一栏自动不显示。`note` 可以拿来解释名字，比如方块运营那条写 `Minecraft 社区服运营组`。
 - `recruitNote` 是岗位列表上方的招募说明，留空不显示。
 - `joinLead` 是加入我们页开头那句话。这页底下有两条路（进社群、进工作团队），用它交代清楚，别让只想进群的人以为下面的门槛跟自己有关。
 
 ### 哪些字段能写 markdown
 
-`recruitNote`、`roles[].duty`、`roles[].requirement`、`collaboration` 这四个支持三种写法：
+`recruitNote`、`roles[].duty`、`roles[].requirement`、`collaboration`，以及每个下挂部门的 `duty`、`requirement`，支持三种写法：
 
 ```
 - 列表项        页面上的方点列表
-#### 小标题      分组标题，用在"后端方向"这类地方
+#### 小标题      分组标题
 **加粗**        强调
 ```
+
+部门和下挂部门已经是两级了，别再靠 `#### 小标题` 在正文里分组，那会把目录结构藏在文字里。
 
 多行内容用 `|-` 开头的块写，每一行缩进保持一致、比字段名多两格：
 
 ```
     requirement: |-
-      #### 后端方向
+      #### 后端开发
 
       - 第一条
       - 第二条
 ```
 
-其余字段（`org.*`、`groups[].*`、`roles[].title`、`slots`）是纯文本，写什么显示什么——
+其余字段（`org.*`、`groups[].*`、`roles[].title`、`roles[].slots`、`roles[].note`、下挂部门的 `title` / `slots` / `note`）是纯文本，写什么显示什么——
 敲进去的星号、井号会原样出现在页面上，不会被当成语法。
 
 `icp` 是备案号，没下来之前留空，页脚就不显示备案信息。

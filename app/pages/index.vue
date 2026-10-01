@@ -5,6 +5,9 @@ const latestNotices = notices.slice(0, 3)
 const groups = site.groups ?? []
 const roles = site.roles ?? []
 
+// 岗位是两级结构，首页数的是下挂部门；某个部门没写下挂部门时，它自己算一个方向
+const openingCount = roles.reduce((total, role) => total + (role.groups.length || 1), 0)
+
 useSiteSeo({ description: site.org.intro || site.org.tagline })
 </script>
 
@@ -165,7 +168,7 @@ useSiteSeo({ description: site.org.intro || site.org.tagline })
       >
         <div>
           <h2 class="text-xl font-extrabold text-ink-950 sm:text-2xl">招募工作人员</h2>
-          <p class="mt-2 text-ink-700">共 {{ roles.length }} 个方向在招人。</p>
+          <p class="mt-2 text-ink-700">共 {{ openingCount }} 个方向在招人。</p>
         </div>
 
         <NuxtLink to="/join#roles" class="btn btn-secondary shrink-0">

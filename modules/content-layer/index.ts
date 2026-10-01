@@ -63,6 +63,25 @@ const prepareAbout = (raw: { lead?: unknown; sections?: AboutSectionEntry[] } | 
   })),
 })
 
+// 岗位分两级：部门下面挂若干下挂部门，两级的职责与要求都是 markdown。
+// 部门数量、下挂部门数量都由内容决定，页面只管按顺序铺开，加一段不用改代码。
+interface RoleGroupEntry {
+  title?: unknown
+  slots?: unknown
+  note?: unknown
+  duty?: unknown
+  requirement?: unknown
+}
+
+const prepareRoleGroups = (value: unknown) =>
+  (Array.isArray(value) ? (value as RoleGroupEntry[]) : []).map((group) => ({
+    title: asText(group?.title),
+    slots: asText(group?.slots),
+    note: asText(group?.note),
+    duty: renderRich(group?.duty),
+    requirement: renderRich(group?.requirement),
+  }))
+
 // 只有这几个长文字字段走 markdown，标题、人数这类短字段保持原样，
 // 免得管理组写岗位名时无意间敲进个星号就被当成强调语法吃掉。
 function prepareSite(raw: Record<string, unknown>) {
@@ -73,9 +92,12 @@ function prepareSite(raw: Record<string, unknown>) {
     recruitNote: renderRich(raw.recruitNote),
     collaboration: renderRich(raw.collaboration),
     roles: roles.map((role) => ({
-      ...role,
+      title: asText(role.title),
+      slots: asText(role.slots),
+      note: asText(role.note),
       duty: renderRich(role.duty),
       requirement: renderRich(role.requirement),
+      groups: prepareRoleGroups(role.groups),
     })),
   }
 }

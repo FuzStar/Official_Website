@@ -10,13 +10,28 @@ declare module '#content' {
     note: string
   }
 
+  // 下挂部门也有一套自己的职责与要求，留空的字段页面不渲染
+  export interface RoleGroup {
+    title: string
+    slots: string
+    // 标题旁边那句小字说明，纯文本。比如"方块运营 · Minecraft 社区服运营组"
+    note: string
+    // 在 content/site.yaml 里按 markdown 写，构建期已渲染成 HTML
+    duty: string
+    requirement: string
+  }
+
   export interface Role {
     title: string
     slots: string
+    // 部门名旁边那句小字说明，纯文本
+    note: string
     // duty 与 requirement 在 content/site.yaml 里按 markdown 写，
     // 构建期已渲染成 HTML，页面上用 v-html 输出
     duty: string
     requirement: string
+    // 下挂部门，没有就空数组
+    groups: RoleGroup[]
   }
 
   export interface SiteContent {

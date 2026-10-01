@@ -75,6 +75,9 @@ useSiteSeo({ title: '加入我们', description: site.org.tagline })
                 >
                   {{ role.slots }}
                 </span>
+                <span v-if="role.note" class="text-xs font-bold text-ink-400">
+                  {{ role.note }}
+                </span>
                 <UIcon
                   name="lucide:chevron-down"
                   class="ml-auto size-5 shrink-0 text-ink-400 transition-transform duration-200"
@@ -106,6 +109,47 @@ useSiteSeo({ title: '加入我们', description: site.org.tagline })
                     </p>
                     <div class="rich-text mt-2" v-html="role.requirement" />
                   </div>
+                </div>
+
+                <!-- 下挂部门。每段是一个独立的小块，各自带职责和要求，
+                     内容都是空的时整块不渲染，不会留一堆空标题。 -->
+                <div
+                  v-if="role.groups.length"
+                  class="mt-7 border-t-2 border-dashed border-ink-900/15 pt-6"
+                >
+                  <p class="text-xs font-bold tracking-wider text-ink-400 uppercase">下挂部门</p>
+
+                  <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                    <li
+                      v-for="group in role.groups"
+                      :key="group.title"
+                      class="rounded-xl border-2 border-ink-900/15 bg-cream-100 px-4 py-4 sm:px-5"
+                    >
+                      <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span class="text-base font-extrabold text-ink-950">
+                          {{ group.title || '未命名' }}
+                        </span>
+                        <span
+                          v-if="group.slots"
+                          class="rounded-full border-2 border-ink-900 bg-brand-200 px-2 py-0.5 text-[11px] font-bold text-ink-900"
+                        >
+                          {{ group.slots }}
+                        </span>
+                        <span v-if="group.note" class="text-xs font-bold text-ink-400">
+                          {{ group.note }}
+                        </span>
+                      </div>
+
+                      <div v-if="group.duty" class="rich-text mt-2" v-html="group.duty" />
+
+                      <template v-if="group.requirement">
+                        <p class="mt-3 text-[11px] font-bold tracking-wider text-ink-400 uppercase">
+                          要求
+                        </p>
+                        <div class="rich-text mt-1.5" v-html="group.requirement" />
+                      </template>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </Transition>
